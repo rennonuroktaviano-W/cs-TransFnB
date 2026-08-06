@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 // Route Halaman Utama
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
-    return view('welcome'); // Letakkan file template Anda di resources/views/welcome.blade.php
+    return view('admin.dashboard'); // Letakkan file template Anda di resources/views/welcome.blade.php
 });
 
 // Route Simpan Data (CREATE dari Form Publik)
