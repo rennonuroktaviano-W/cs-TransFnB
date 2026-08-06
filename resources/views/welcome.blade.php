@@ -221,19 +221,33 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     }
 
-    /* Flip Clock Box Animation */
+    /* Smooth Countdown Digit Animation */
     .flip-unit {
         position: relative;
-        perspective: 400px;
+        overflow: hidden;
     }
 
     .flip-card-inner {
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-style: preserve-3d;
+        display: inline-block;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .flip-unit.do-flip .flip-card-inner {
-        transform: rotateX(-180deg);
+    .flip-unit.do-update .flip-card-inner {
+        animation: digitSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes digitSlideUp {
+        0% {
+            opacity: 0.4;
+            transform: translateY(12px) scale(0.92);
+            filter: blur(2px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
     }
 
     /* Multi-Color Gradient Text - Core theme from photo */
@@ -913,10 +927,10 @@
 
 
         /* ------------------------------------------------------------- */
-        /* 3. FLIP COUNTDOWN TIMER LOGIC                                */
+        /* 3. FLIP COUNTDOWN TIMER LOGIC (FIXED STATIC TARGET)           */
         /* ------------------------------------------------------------- */
-        // Target date: 45 Days from now
-        const targetDate = new Date().getTime() + (45 * 24 * 60 * 60 * 1000);
+        // Ubah target date ke tanggal peluncuran pasti (Contoh: 1 Oktober 2026 00:00:00)
+        const targetDate = new Date('October 1, 2026 00:00:00').getTime();
 
         const timerDays = document.getElementById('timer-days');
         const timerHours = document.getElementById('timer-hours');
@@ -927,7 +941,14 @@
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            if (distance < 0) return;
+            // Jika waktu sudah lewat
+            if (distance < 0) {
+                if (timerDays) timerDays.textContent = "00";
+                if (timerHours) timerHours.textContent = "00";
+                if (timerMinutes) timerMinutes.textContent = "00";
+                if (timerSeconds) timerSeconds.textContent = "00";
+                return;
+            }
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -946,8 +967,13 @@
             if (element.textContent !== formatted) {
                 const flipUnit = element.closest('.flip-unit');
                 if (flipUnit) {
-                    flipUnit.classList.add('do-flip');
-                    setTimeout(() => flipUnit.classList.remove('do-flip'), 500);
+                    // Remove class first to reset animation if rapid changes occur
+                    flipUnit.classList.remove('do-update');
+                    // Force reflow to restart animation
+                    void flipUnit.offsetWidth;
+                    flipUnit.classList.add('do-update');
+                    // Clean up class after animation completes
+                    setTimeout(() => flipUnit.classList.remove('do-update'), 500);
                 }
                 element.textContent = formatted;
             }
@@ -955,8 +981,6 @@
 
         setInterval(updateTimer, 1000);
         updateTimer();
-
-
         /* ------------------------------------------------------------- */
         /* 4. MOUSE PARALLAX TILT ON MAIN GLASS CARD                    */
         /* ------------------------------------------------------------- */
