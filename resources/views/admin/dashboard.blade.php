@@ -1,1812 +1,1561 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth h-full">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trans Food & Beverage Official — Premium Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Premium - Trans Food & Beverage Official</title>
+    <meta name="description"
+        content="Dashboard resmi manajemen brand F&B PT Trans Food & Beverage. Platform kelas internasional untuk pemantauan performa brand, outlet, dan analitik secara real-time.">
+    <meta name="theme-color" content="#020617">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FONT AWESOME ICON CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TAILWIND CONFIGURATION -->
     <script>
     tailwind.config = {
+        darkMode: 'class',
         theme: {
             extend: {
                 colors: {
-                    navy: {
-                        950: '#05070f',
-                        900: '#070a16',
-                        800: '#0b1022',
-                        700: '#111733',
-                        600: '#1a2147'
-                    },
-                    electric: {
-                        400: '#3b82f6',
-                        500: '#2563eb',
-                        600: '#1d4ed8'
-                    },
-                    violet: {
-                        400: '#8b5cf6',
-                        500: '#7c3aed',
-                        600: '#6d28d9'
-                    },
-                    accent: {
-                        400: '#22d3ee',
-                        500: '#06b6d4'
-                    }
+                    'trans-navy': '#020617',
+                    'trans-navy-dark': '#010409',
+                    'acc-blue': '#2563EB',
+                    'acc-purple': '#9333EA',
+                    'acc-green': '#22C55E',
+                    'acc-yellow': '#FBBF24',
+                    'acc-red': '#EF4444',
+                    'acc-blue-glow': '#3B82F6',
+                    'acc-green-glow': '#4ADE80',
                 },
                 fontFamily: {
-                    sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                    display: ['Sora', 'system-ui', 'sans-serif']
+                    sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    display: ['"Space Grotesk"', 'sans-serif'],
+                    heading: ['"Poppins"', 'sans-serif'],
                 },
                 animation: {
-                    'aurora': 'aurora 18s ease-in-out infinite',
-                    'float-slow': 'floatSlow 9s ease-in-out infinite',
-                    'float-mid': 'floatMid 6s ease-in-out infinite',
-                    'spin-slow': 'spin 22s linear infinite',
-                    'shimmer': 'shimmer 3s linear infinite',
-                    'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-                    'marquee': 'marquee 28s linear infinite',
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'glow-pulse-blue': 'glowPulseBlue 3s ease-in-out infinite alternate',
+                    'shine-sweep': 'shineSweep 3s linear infinite',
+                    'spin-slow': 'spin 15s linear infinite',
+                    'aurora': 'auroraMove 12s ease-in-out infinite alternate',
+                    'fade-in': 'fadeIn 0.8s ease-out forwards',
+                    'float': 'floatAnim 6s ease-in-out infinite',
                 },
                 keyframes: {
-                    aurora: {
-                        '0%,100%': {
-                            transform: 'translate(0,0) scale(1)',
-                            opacity: '.55'
-                        },
-                        '50%': {
-                            transform: 'translate(4%, -3%) scale(1.15)',
-                            opacity: '.8'
-                        }
-                    },
-                    floatSlow: {
-                        '0%,100%': {
-                            transform: 'translateY(0)'
-                        },
-                        '50%': {
-                            transform: 'translateY(-18px)'
-                        }
-                    },
-                    floatMid: {
-                        '0%,100%': {
-                            transform: 'translateY(0)'
-                        },
-                        '50%': {
-                            transform: 'translateY(-10px)'
-                        }
-                    },
-                    shimmer: {
+                    glowPulseBlue: {
                         '0%': {
-                            backgroundPosition: '-200% 0'
+                            filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))'
                         },
                         '100%': {
-                            backgroundPosition: '200% 0'
-                        }
-                    },
-                    pulseGlow: {
-                        '0%,100%': {
-                            opacity: .5
+                            filter: 'drop-shadow(0 0 25px rgba(59, 130, 246, 0.7))'
                         },
-                        '50%': {
-                            opacity: 1
-                        }
                     },
-                    marquee: {
+                    shineSweep: {
                         '0%': {
-                            transform: 'translateX(0)'
+                            transform: 'translateX(-100%)'
                         },
                         '100%': {
-                            transform: 'translateX(-50%)'
+                            transform: 'translateX(250%)'
+                        },
+                    },
+                    auroraMove: {
+                        '0%': {
+                            transform: 'translate(0%, 0%) scale(1)'
+                        },
+                        '50%': {
+                            transform: 'translate(5%, 8%) scale(1.1)'
+                        },
+                        '100%': {
+                            transform: 'translate(-3%, 3%) scale(0.98)'
                         }
                     },
+                    fadeIn: {
+                        '0%': {
+                            opacity: 0,
+                            transform: 'translateY(15px)'
+                        },
+                        '100%': {
+                            opacity: 1,
+                            transform: 'translateY(0)'
+                        },
+                    },
+                    floatAnim: {
+                        '0%, 100%': {
+                            transform: 'translateY(0px)'
+                        },
+                        '50%': {
+                            transform: 'translateY(-12px)'
+                        },
+                    }
                 }
             }
         }
     }
     </script>
+
+    <!-- CUSTOM CSS -->
     <style>
-    :root {
-        --bg: #05070f;
-        --glass: rgba(255, 255, 255, 0.045);
-        --glass-border: rgba(255, 255, 255, 0.09);
+    ::-webkit-scrollbar {
+        width: 8px;
     }
 
-    html,
-    body {
-        background: var(--bg);
-        color: #e7ecf5;
+    ::-webkit-scrollbar-track {
+        background: #010409;
     }
 
-    body {
-        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-        overflow-x: hidden;
+    ::-webkit-scrollbar-thumb {
+        background: rgba(37, 99, 235, 0.4);
+        border-radius: 999px;
     }
 
-    /* ---------- Background layers ---------- */
-    .bg-grid {
-        background-image:
-            linear-gradient(rgba(59, 130, 246, .06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(139, 92, 246, .06) 1px, transparent 1px);
-        background-size: 56px 56px;
-        mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(37, 99, 235, 0.8);
     }
 
-    .noise {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-        opacity: .04;
-    }
-
-    .aurora-blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        mix-blend-mode: screen;
-        pointer-events: none;
-    }
-
-    /* ---------- Glass ---------- */
-    .glass {
-        background: var(--glass);
-        border: 1px solid var(--glass-border);
-        backdrop-filter: blur(18px) saturate(140%);
-        -webkit-backdrop-filter: blur(18px) saturate(140%);
-    }
-
-    .glass-strong {
-        background: rgba(10, 14, 30, 0.6);
+    .glass-panel {
+        background: rgba(3, 7, 18, 0.75);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(22px) saturate(160%);
-        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
     }
 
-    .grad-border {
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+        border-color: rgba(37, 99, 235, 0.4);
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        transform: translateY(-4px);
+    }
+
+    .glass-button {
         position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .grad-border::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        padding: 1px;
-        border-radius: inherit;
-        background: linear-gradient(135deg, rgba(59, 130, 246, .7), rgba(139, 92, 246, .5), rgba(34, 211, 238, .4));
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
+    .glass-button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* ---------- Text gradient ---------- */
-    .text-grad {
-        background: linear-gradient(110deg, #fff 10%, #93c5fd 40%, #c4b5fd 70%, #67e8f9 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+    .glass-button-primary {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #2563EB 0%, #9333EA 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .text-grad-blue {
-        background: linear-gradient(110deg, #60a5fa, #818cf8 50%, #22d3ee);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+    .glass-button-primary:hover {
+        box-shadow: 0 15px 35px rgba(147, 51, 234, 0.5), 0 0 20px rgba(59, 130, 246, 0.4);
+        transform: translateY(-2px) scale(1.01);
     }
 
-    /* ---------- Buttons ---------- */
-    .btn-magnetic {
-        transition: transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .25s;
+    .input-field {
+        background: rgba(1, 4, 9, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+        transition: all 0.3s;
     }
 
-    .btn-magnetic:hover {
-        box-shadow: 0 0 0 1px rgba(99, 102, 241, .5), 0 12px 40px -8px rgba(59, 130, 246, .6);
+    .input-field:focus {
+        border-color: #2563EB;
+        box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+        outline: none;
     }
 
     .ripple {
         position: absolute;
         border-radius: 50%;
+        background: rgba(59, 130, 246, 0.4);
         transform: scale(0);
-        animation: ripple .6s ease-out;
-        background: rgba(255, 255, 255, .45);
+        animation: ripple-animation 0.6s linear;
         pointer-events: none;
     }
 
-    @keyframes ripple {
+    @keyframes ripple-animation {
         to {
             transform: scale(4);
             opacity: 0;
         }
     }
 
-    /* ---------- Reveal ---------- */
-    .reveal {
-        opacity: 0;
-        transform: translateY(28px);
-        transition: opacity .8s cubic-bezier(.2, .8, .2, 1), transform .8s cubic-bezier(.2, .8, .2, 1);
+    .bg-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     }
 
-    .reveal.in {
-        opacity: 1;
-        transform: none;
-    }
-
-    .reveal-scale {
-        opacity: 0;
-        transform: scale(.94);
-        transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1);
-    }
-
-    .reveal-scale.in {
-        opacity: 1;
-        transform: none;
-    }
-
-    /* ---------- Brand cards ---------- */
-    .brand-bg {
-        background-size: cover;
-        background-position: center;
-    }
-
-    .brand-scrim {
-        background: linear-gradient(180deg, rgba(5, 7, 15, .35) 0%, rgba(5, 7, 15, .55) 45%, rgba(5, 7, 15, .92) 100%);
-    }
-
-    /* marquee */
-    .marquee-track {
-        display: flex;
-        width: max-content;
-        animation: marquee 30s linear infinite;
-    }
-
-    @keyframes marquee {
-        0% {
-            transform: translateX(0)
-        }
-
-        100% {
-            transform: translateX(-50%)
-        }
-    }
-
-    /* scrollbar */
-    ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #070a16;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(#1d4ed8, #7c3aed);
-        border-radius: 10px;
-    }
-
-    /* nav link */
-    .nav-link {
+    .animated-border-box {
         position: relative;
+        border-radius: 2rem;
+        overflow: hidden;
     }
 
-    .nav-link::after {
+    .animated-border-box::before {
         content: '';
         position: absolute;
-        left: 0;
-        bottom: -6px;
-        height: 2px;
-        width: 0;
-        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-        transition: width .3s ease;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(transparent, transparent, transparent, #2563EB, #9333EA, #22C55E);
+        animation: spin 6s linear infinite;
+        z-index: 0;
     }
 
-    .nav-link:hover::after,
-    .nav-link.active::after {
-        width: 100%;
+    .animated-border-content {
+        position: relative;
+        z-index: 1;
+        margin: 2px;
+        border-radius: calc(2rem - 2px);
+        background: rgba(2, 6, 23, 0.9);
+        backdrop-filter: blur(24px);
     }
 
-    /* gallery */
-    .gallery-item img {
-        transition: transform .7s cubic-bezier(.2, .8, .2, 1);
+    .reveal-element {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+        filter: blur(8px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .gallery-item:hover img {
-        transform: scale(1.12);
-    }
-
-    /* slider */
-    .promo-slide {
-        transition: opacity .8s ease, transform .8s ease;
-    }
-
-    /* count glow */
-    .count-glow {
-        text-shadow: 0 0 24px rgba(96, 165, 250, .5);
-    }
-
-    /* timeline */
-    .timeline-dot {
-        box-shadow: 0 0 0 4px rgba(59, 130, 246, .15), 0 0 18px rgba(59, 130, 246, .6);
-    }
-
-    /* chart bars */
-    .chart-bar {
-        transition: height 1s cubic-bezier(.2, .8, .2, 1), opacity .3s;
-    }
-
-    /* mobile menu */
-    .mobile-menu {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .4s ease;
-    }
-
-    .mobile-menu.open {
-        max-height: 520px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation: none !important;
-            transition: none !important;
-        }
+    .reveal-element.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
     }
     </style>
 </head>
 
-<body class="relative antialiased selection:bg-blue-500/30 selection:text-white">
+<body
+    class="bg-trans-navy text-white font-sans antialiased selection:bg-acc-blue selection:text-white overflow-x-hidden h-full relative">
 
-    <!-- ============ BACKGROUND LAYERS ============ -->
-    <div class="fixed inset-0 -z-10 overflow-hidden bg-navy-950">
-        <div class="absolute inset-0 bg-grid"></div>
-        <div class="aurora-blob w-[42rem] h-[42rem] -top-40 -left-32 bg-blue-600/30 animate-aurora"></div>
-        <div class="aurora-blob w-[36rem] h-[36rem] top-1/3 -right-24 bg-violet-600/25 animate-aurora"
-            style="animation-delay:-6s"></div>
-        <div class="aurora-blob w-[30rem] h-[30rem] bottom-0 left-1/3 bg-cyan-500/20 animate-aurora"
-            style="animation-delay:-12s"></div>
-        <canvas id="particles" class="absolute inset-0 w-full h-full"></canvas>
-        <div class="absolute inset-0 noise"></div>
-        <div id="parallax-light"
-            class="absolute w-[28rem] h-[28rem] rounded-full bg-blue-500/10 blur-3xl pointer-events-none transition-transform duration-300">
+    <!-- BACKGROUND EFFECTS -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <canvas id="particle-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+        <div
+            class="absolute -top-20 -left-20 w-[650px] h-[650px] bg-acc-blue opacity-15 blur-[140px] rounded-full animate-aurora">
         </div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[550px] h-[550px] bg-acc-purple opacity-10 blur-[120px] rounded-full animate-aurora"
+            style="animation-delay: -4s;"></div>
+        <div class="absolute top-[30%] left-[40%] w-[350px] h-[350px] bg-acc-green opacity-5 blur-[100px] rounded-full animate-aurora"
+            style="animation-delay: -8s;"></div>
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:5rem_5rem]">
+        </div>
+        <div class="absolute inset-0 bg-noise opacity-40"></div>
     </div>
 
-    <!-- ============ NAVBAR ============ -->
-    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
-        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mt-3 flex items-center justify-between rounded-2xl glass-strong px-4 sm:px-6 h-16 transition-all duration-500"
-                id="nav-inner">
-                <!-- Logo -->
-                <a href="#hero" class="flex items-center gap-3 group">
-                    <div
-                        class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                        <span class="font-display font-extrabold text-white text-lg">T</span>
-                        <div class="absolute inset-0 rounded-xl ring-1 ring-white/30"></div>
+    <!-- NAVBAR -->
+    <header
+        class="fixed top-0 left-0 right-0 z-[1000] glass-panel border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div
+                    class="w-10 h-10 bg-acc-blue rounded-xl flex items-center justify-center font-bold text-xl tracking-tighter text-white shadow-[0_0_20px_rgba(59,130,246,0.6)] group-hover:scale-105 transition-transform">
+                    T
+                </div>
+                <div class="leading-tight">
+                    <span class="font-display font-black text-lg sm:text-xl tracking-tighter text-white">TRANS <span
+                            class="text-acc-blue">F<span class="text-white">&</span>B</span></span>
+                    <span class="block text-[9px] tracking-[0.3em] font-semibold text-acc-purple uppercase">OFFICIAL
+                        DASHBOARD</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav
+                class="hidden lg:flex items-center space-x-1 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-xl">
+                <a href="#dashboard"
+                    class="px-4 py-2 rounded-full text-xs font-semibold text-white bg-acc-blue/20 border border-acc-blue/40 transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)]">Dashboard</a>
+                <a href="#brands"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Brands</a>
+                <a href="#campaign"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Campaign</a>
+                <a href="#performance"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Performance</a>
+                <a href="#news"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">News</a>
+                <a href="#gallery"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Gallery</a>
+                <a href="#promotion"
+                    class="px-4 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Promotion</a>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-3">
+                <button id="search-btn"
+                    class="w-10 h-10 rounded-xl glass-button flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+                    title="Pencarian">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </button>
+                <div class="relative">
+                    <button id="notif-btn"
+                        class="w-10 h-10 rounded-xl glass-button flex items-center justify-center text-slate-300 hover:text-white transition-colors relative"
+                        title="Notifikasi">
+                        <i class="fa-regular fa-bell text-sm"></i>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-acc-blue rounded-full animate-ping"></span>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-acc-blue rounded-full"></span>
+                    </button>
+                </div>
+                <div class="hidden sm:flex items-center space-x-3 pl-2 border-l border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-acc-blue to-acc-purple p-0.5 shadow-lg">
+                        <div
+                            class="w-full h-full bg-trans-navy-dark rounded-[10px] flex items-center justify-center font-bold text-xs text-white">
+                            TF
+                        </div>
                     </div>
-                    <div class="leading-tight">
-                        <p class="font-display font-bold text-white text-sm sm:text-base tracking-tight">Trans <span
-                                class="text-grad-blue">F&amp;B</span></p>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Food &amp; Beverage</p>
+                    <div class="text-left">
+                        <span class="block font-heading font-bold text-xs text-white">Admin Trans F&B</span>
+                        <span class="block text-[10px] text-acc-green font-medium flex items-center gap-1"><span
+                                class="w-1.5 h-1.5 rounded-full bg-acc-green animate-pulse"></span> Online</span>
                     </div>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
-                    <a href="#hero" class="nav-link active hover:text-white">Dashboard</a>
-                    <a href="#brands" class="nav-link hover:text-white">Brands</a>
-                    <a href="#promotion" class="nav-link hover:text-white">Campaign</a>
-                    <a href="#analytics" class="nav-link hover:text-white">Performance</a>
-                    <a href="#news" class="nav-link hover:text-white">News</a>
-                    <a href="#gallery" class="nav-link hover:text-white">Gallery</a>
-                    <a href="#promotion" class="nav-link hover:text-white">Promotion</a>
                 </div>
-
-                <!-- Right -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <button
-                        class="hidden sm:flex items-center gap-2 glass rounded-xl px-3 h-10 text-slate-400 hover:text-white transition"
-                        onclick="document.getElementById('search-bar').classList.toggle('hidden')">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="7" />
-                            <path d="m21 21-4.3-4.3" />
-                        </svg>
-                        <span class="text-xs">Search</span>
-                    </button>
-                    <button
-                        class="relative glass rounded-xl w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white transition"
-                        aria-label="Notifications">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path
-                                d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9" />
-                        </svg>
-                        <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-cyan-400 animate-pulse-glow"></span>
-                    </button>
-                    <button
-                        class="flex items-center gap-2 glass rounded-xl pl-1 pr-3 h-10 hover:ring-1 hover:ring-white/20 transition">
-                        <span
-                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-xs font-bold text-white">OF</span>
-                        <span class="hidden sm:block text-xs text-slate-200 font-medium">Official</span>
-                    </button>
-                    <button id="menu-btn"
-                        class="lg:hidden glass rounded-xl w-10 h-10 flex items-center justify-center text-white"
-                        aria-label="Menu">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+                <button id="mobile-menu-toggle"
+                    class="lg:hidden w-10 h-10 rounded-xl glass-button flex items-center justify-center text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
             </div>
+        </div>
 
-            <!-- Search bar -->
-            <div id="search-bar" class="hidden mt-2 glass-strong rounded-2xl p-4">
-                <div class="flex items-center gap-3">
-                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2"
-                        viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="7" />
-                        <path d="m21 21-4.3-4.3" />
-                    </svg>
-                    <input type="text" placeholder="Search brands, promotions, news…"
-                        class="flex-1 bg-transparent outline-none text-sm text-white placeholder:text-slate-500" />
-                    <kbd class="text-[10px] text-slate-400 glass px-2 py-1 rounded">ESC</kbd>
-                </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="lg:hidden hidden px-6 py-4 bg-trans-navy-dark/95 border-t border-white/10 backdrop-blur-2xl">
+            <div class="flex flex-col space-y-2">
+                <a href="#dashboard"
+                    class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-acc-blue/20 text-white">Dashboard</a>
+                <a href="#brands" class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">Brands
+                    Showcase</a>
+                <a href="#campaign" class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">Campaign &
+                    Event</a>
+                <a href="#performance"
+                    class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">Performance Analytics</a>
+                <a href="#news" class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">News &
+                    Updates</a>
+                <a href="#gallery" class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">Gallery</a>
+                <a href="#promotion"
+                    class="px-4 py-2.5 rounded-xl text-xs text-slate-300 hover:bg-white/5">Promotions</a>
             </div>
-
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="mobile-menu lg:hidden mt-2 glass-strong rounded-2xl">
-                <div class="flex flex-col p-4 text-sm text-slate-300">
-                    <a href="#hero" class="py-2.5 hover:text-white">Dashboard</a>
-                    <a href="#brands" class="py-2.5 hover:text-white">Brands</a>
-                    <a href="#promotion" class="py-2.5 hover:text-white">Campaign</a>
-                    <a href="#analytics" class="py-2.5 hover:text-white">Performance</a>
-                    <a href="#news" class="py-2.5 hover:text-white">News</a>
-                    <a href="#gallery" class="py-2.5 hover:text-white">Gallery</a>
-                    <a href="#promotion" class="py-2.5 hover:text-white">Promotion</a>
-                </div>
-            </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="pt-24">
+    <!-- MAIN CONTENT -->
+    <main id="dashboard" class="relative z-10 pt-32 pb-24 px-4 sm:px-8 max-w-7xl mx-auto space-y-20">
 
-        <!-- ============ HERO ============ -->
-        <section id="hero" class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10 pb-20">
-            <div class="relative">
-                <div class="reveal in text-center max-w-4xl mx-auto">
-                    <div
-                        class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-slate-300 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-glow"></span>
-                        Live Dashboard · Real-time overview
-                    </div>
-                    <h1
-                        class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
-                        <span class="text-slate-200">Welcome Back,</span><br />
-                        <span class="text-grad">Trans Food &amp; Beverage</span><br />
-                        <span class="text-grad-blue">Official</span>
-                    </h1>
-                    <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
-                        Manage all Trans F&amp;B brands in one premium dashboard — performance, campaigns, and growth,
-                        beautifully unified.
-                    </p>
-                    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                        <a href="#brands"
-                            class="btn-magnetic relative overflow-hidden rounded-xl px-6 h-12 inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold text-sm">
-                            Explore Brands
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg>
-                        </a>
-                        <a href="#analytics"
-                            class="btn-magnetic rounded-xl px-6 h-12 inline-flex items-center gap-2 glass text-white font-semibold text-sm hover:ring-1 hover:ring-white/20">
-                            View Performance
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Floating glass preview card -->
-                <div class="mt-16 grid lg:grid-cols-3 gap-6">
-                    <div
-                        class="lg:col-span-2 reveal-scale in grad-border rounded-3xl glass-strong p-6 sm:p-8 relative overflow-hidden">
-                        <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-blue-600/20 blur-3xl"></div>
-                        <div class="flex items-center justify-between mb-6">
-                            <div>
-                                <p class="text-xs uppercase tracking-widest text-slate-400">Network Snapshot</p>
-                                <h3 class="font-display text-2xl font-bold text-white mt-1">Trans F&amp;B Ecosystem</h3>
-                            </div>
-                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan-300">Q4 · 2026</span>
-                        </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            <div class="glass rounded-2xl p-4">
-                                <p class="text-[11px] uppercase tracking-wider text-slate-400">Brands</p>
-                                <p class="font-display text-2xl font-bold text-white mt-1">6</p>
-                                <p class="text-xs text-emerald-400 mt-1">+2 this year</p>
-                            </div>
-                            <div class="glass rounded-2xl p-4">
-                                <p class="text-[11px] uppercase tracking-wider text-slate-400">Outlets</p>
-                                <p class="font-display text-2xl font-bold text-white mt-1">1,240</p>
-                                <p class="text-xs text-emerald-400 mt-1">+8.4%</p>
-                            </div>
-                            <div class="glass rounded-2xl p-4">
-                                <p class="text-[11px] uppercase tracking-wider text-slate-400">Countries</p>
-                                <p class="font-display text-2xl font-bold text-white mt-1">14</p>
-                                <p class="text-xs text-cyan-400 mt-1">Global reach</p>
-                            </div>
-                            <div class="glass rounded-2xl p-4">
-                                <p class="text-[11px] uppercase tracking-wider text-slate-400">Employees</p>
-                                <p class="font-display text-2xl font-bold text-white mt-1">22K</p>
-                                <p class="text-xs text-violet-400 mt-1">Worldwide</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="reveal-scale in grad-border rounded-3xl glass-strong p-6 sm:p-8 relative overflow-hidden">
-                        <div class="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-violet-600/20 blur-3xl">
-                        </div>
-                        <p class="text-xs uppercase tracking-widest text-slate-400">Live Revenue</p>
-                        <h3 class="font-display text-2xl font-bold text-white mt-1">Today</h3>
-                        <p class="font-display text-4xl font-extrabold text-grad-blue mt-4 count-glow"
-                            data-count="487200" data-prefix="Rp ">Rp 0</p>
-                        <div class="mt-6 h-2 rounded-full bg-white/5 overflow-hidden">
-                            <div
-                                class="h-full w-3/4 rounded-full bg-gradient-to-r from-blue-500 to-violet-500 animate-pulse-glow">
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-400 mt-3">78% of daily target · updating live</p>
-                        <div class="mt-6 flex items-center gap-2 text-xs text-emerald-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="m6 9 6-6 6 6M6 15l6 6 6-6" />
-                            </svg>
-                            +12.6% vs yesterday
-                        </div>
-                    </div>
-                </div>
+        <!-- HERO SECTION -->
+        <section
+            class="reveal-element text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8 glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-acc-blue/20 rounded-full blur-3xl pointer-events-none">
             </div>
-        </section>
-
-        <!-- ============ OVERVIEW CARDS ============ -->
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
-            <div class="flex items-end justify-between mb-6">
-                <div>
-                    <p class="text-xs uppercase tracking-widest text-slate-400">Overview</p>
-                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">At a Glance</h2>
-                </div>
-                <span class="glass rounded-full px-3 py-1 text-xs text-slate-300">Updated just now</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <!-- card -->
-                <article
-                    class="reveal grad-border rounded-3xl glass p-6 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500">
-                    <div
-                        class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-blue-600/20 blur-2xl group-hover:bg-blue-500/30 transition">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="w-11 h-11 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-300">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M3 7h18M3 12h18M3 17h18" />
-                            </svg>
-                        </div>
-                        <span class="text-xs text-emerald-400">+2</span>
-                    </div>
-                    <p class="mt-5 text-xs uppercase tracking-wider text-slate-400">Total Brand</p>
-                    <p class="font-display text-4xl font-extrabold text-white mt-1 count" data-count="6">0</p>
-                    <p class="text-xs text-slate-500 mt-2">Active across network</p>
-                </article>
-
-                <article
-                    class="reveal grad-border rounded-3xl glass p-6 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500"
-                    style="transition-delay:.05s">
-                    <div
-                        class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-violet-600/20 blur-2xl group-hover:bg-violet-500/30 transition">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div
-                            class="w-11 h-11 rounded-xl bg-violet-500/15 flex items-center justify-center text-violet-300">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" />
-                                <circle cx="12" cy="11" r="2.5" />
-                            </svg>
-                        </div>
-                        <span class="text-xs text-emerald-400">+8.4%</span>
-                    </div>
-                    <p class="mt-5 text-xs uppercase tracking-wider text-slate-400">Total Outlet</p>
-                    <p class="font-display text-4xl font-extrabold text-white mt-1 count" data-count="1240">0</p>
-                    <p class="text-xs text-slate-500 mt-2">14 countries worldwide</p>
-                </article>
-
-                <article
-                    class="reveal grad-border rounded-3xl glass p-6 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500"
-                    style="transition-delay:.1s">
-                    <div
-                        class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-cyan-500/20 blur-2xl group-hover:bg-cyan-400/30 transition">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="w-11 h-11 rounded-xl bg-cyan-500/15 flex items-center justify-center text-cyan-300">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                            </svg>
-                        </div>
-                        <span class="text-xs text-emerald-400">+12.6%</span>
-                    </div>
-                    <p class="mt-5 text-xs uppercase tracking-wider text-slate-400">Today's Revenue</p>
-                    <p class="font-display text-4xl font-extrabold text-white mt-1"><span class="count" data-count="487"
-                            data-prefix="" data-suffix="M">0</span></p>
-                    <p class="text-xs text-slate-500 mt-2">Rp 487M · live</p>
-                </article>
-
-                <article
-                    class="reveal grad-border rounded-3xl glass p-6 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500"
-                    style="transition-delay:.15s">
-                    <div
-                        class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-emerald-500/20 blur-2xl group-hover:bg-emerald-400/30 transition">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div
-                            class="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-300">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="m12 2 2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21 8 14 2 9.4h7.6Z" />
-                            </svg>
-                        </div>
-                        <span class="text-xs text-emerald-400">+0.3</span>
-                    </div>
-                    <p class="mt-5 text-xs uppercase tracking-wider text-slate-400">Customer Satisfaction</p>
-                    <p class="font-display text-4xl font-extrabold text-white mt-1"><span class="count" data-count="4.9"
-                            data-decimals="1">0</span><span class="text-2xl text-slate-400">/5</span></p>
-                    <p class="text-xs text-slate-500 mt-2">From 128K reviews</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- ============ BRANDS ============ -->
-        <section id="brands" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center mb-12 reveal">
-                <p class="text-xs uppercase tracking-widest text-slate-400">Our Brands</p>
-                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-grad mt-2">A Portfolio of Icons</h2>
-                <p class="text-slate-400 mt-3 max-w-2xl mx-auto">Each brand, a world of its own. Explore the stories
-                    behind the names.</p>
+            <div
+                class="absolute -left-20 -bottom-20 w-80 h-80 bg-acc-purple/15 rounded-full blur-3xl pointer-events-none">
             </div>
 
-            <!-- 1. The Coffee Bean & Tea Leaf -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group mb-10" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/13240964/pexels-photo-13240964.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"></div>
-                <div class="absolute top-6 right-6 glass rounded-full px-3 py-1 text-xs text-amber-200">Coffee · Premium
-                </div>
-                <div class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-end">
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80 mb-3">Since 1963</p>
-                    <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white max-w-xl">The Coffee Bean
-                        &amp; Tea Leaf</h3>
-                    <p class="mt-4 text-slate-200 max-w-xl text-sm sm:text-base">Hand-crafted coffee and rare teas,
-                        roasted to perfection. A California icon now loved across the world.</p>
-                    <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <button
-                            class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-sm">Explore</button>
-                        <button class="btn-magnetic rounded-xl px-5 h-11 glass text-white font-semibold text-sm">View
-                            Outlets</button>
-                    </div>
-                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Today's Sales</p>
-                            <p class="font-display text-lg font-bold text-white">Rp 92M</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Visitors</p>
-                            <p class="font-display text-lg font-bold text-white">18.4K</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Promotion</p>
-                            <p class="font-display text-lg font-bold text-amber-300">3 Live</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Rating</p>
-                            <p class="font-display text-lg font-bold text-white">4.9 ★</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 2. Wendy's -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group mb-10" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/18987002/pexels-photo-18987002.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"></div>
-                <div class="absolute top-6 left-6 glass rounded-full px-3 py-1 text-xs text-red-200">Burger · Best
-                    Seller</div>
-                <div class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-end items-end text-right">
-                    <div class="max-w-xl">
-                        <p class="text-xs uppercase tracking-[0.3em] text-red-300/80 mb-3">Fresh, Never Frozen</p>
-                        <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Wendy's</h3>
-                        <p class="mt-4 text-slate-200 text-sm sm:text-base">Square patties, fresh produce, and that
-                            signature creamy Frosty. Bold flavor, honest food.</p>
-                        <div class="mt-6 inline-flex glass rounded-2xl px-4 py-2 text-sm text-amber-200">🔥 Best Seller:
-                            Baconator Combo</div>
-                        <div class="mt-6 flex flex-wrap items-center justify-end gap-3">
-                            <button
-                                class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-red-500 to-rose-500 text-white font-semibold text-sm">Order
-                                Now</button>
-                            <button
-                                class="btn-magnetic rounded-xl px-5 h-11 glass text-white font-semibold text-sm">Explore</button>
-                        </div>
-                        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Today's Sales</p>
-                                <p class="font-display text-lg font-bold text-white">Rp 78M</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Visitors</p>
-                                <p class="font-display text-lg font-bold text-white">22.1K</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Promotion</p>
-                                <p class="font-display text-lg font-bold text-red-300">5 Live</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Rating</p>
-                                <p class="font-display text-lg font-bold text-white">4.7 ★</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 3. Baskin Robbins -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group mb-10" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/26068500/pexels-photo-26068500.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"
-                    style="background:linear-gradient(180deg, rgba(5,7,15,.3) 0%, rgba(5,7,15,.5) 40%, rgba(5,7,15,.9) 100%);">
-                </div>
-                <div class="absolute top-6 right-6 glass rounded-full px-3 py-1 text-xs text-pink-200">Ice Cream · 31
-                    Flavors</div>
-                <!-- floating scoops -->
+            <div class="space-y-4 relative z-10 max-w-2xl">
                 <div
-                    class="absolute top-1/4 left-10 w-16 h-16 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 blur-[2px] opacity-80 animate-float-slow shadow-lg shadow-pink-500/40">
+                    class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-acc-blue/10 border border-acc-blue/30 text-acc-blue text-xs font-semibold">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Enterprise Executive Suite v4.2</span>
                 </div>
-                <div
-                    class="absolute top-1/3 left-1/4 w-12 h-12 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 blur-[2px] opacity-80 animate-float-mid shadow-lg shadow-amber-500/40">
-                </div>
-                <div class="absolute top-1/2 left-16 w-10 h-10 rounded-full bg-gradient-to-br from-fuchsia-400 to-violet-500 blur-[2px] opacity-80 animate-float-slow shadow-lg shadow-fuchsia-500/40"
-                    style="animation-delay:-3s"></div>
-                <div class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-end">
-                    <p class="text-xs uppercase tracking-[0.3em] text-pink-300/80 mb-3">31 Flavors of Joy</p>
-                    <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Baskin Robbins</h3>
-                    <p class="mt-4 text-slate-200 max-w-xl text-sm sm:text-base">A flavor for every day of the month.
-                        Creamy, dreamy, and always celebrating the sweet side of life.</p>
-                    <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <button
-                            class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-semibold text-sm">Explore
-                            Flavors</button>
-                        <span class="glass rounded-xl px-4 h-11 inline-flex items-center text-sm text-pink-200">Today's
-                            Sales: Rp 54M</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 4. Warung Wardani -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group mb-10" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/37179935/pexels-photo-37179935.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"></div>
-                <!-- traditional pattern overlay -->
-                <div class="absolute inset-0 opacity-20"
-                    style="background-image:radial-gradient(circle at 20% 20%, #d97706 0, transparent 8%), radial-gradient(circle at 80% 30%, #b45309 0, transparent 8%), radial-gradient(circle at 40% 70%, #92400e 0, transparent 8%); background-size:120px 120px;">
-                </div>
-                <div class="absolute top-6 left-6 glass rounded-full px-3 py-1 text-xs text-amber-200">Nusantara ·
-                    Heritage</div>
-                <div
-                    class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-center items-center text-center">
-                    <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80 mb-3">Warisan Nusantara</p>
-                    <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Warung Wardani</h3>
-                    <p class="mt-4 text-slate-200 max-w-xl text-sm sm:text-base">Sajian nusantara otentik dengan resep
-                        turun-temurun. Cita rasa rumahan yang tak tergantikan.</p>
-                    <div class="mt-6 glass rounded-2xl px-4 py-2 text-sm text-amber-200">👑 Best Menu: Nasi Liwet
-                        Spesial</div>
-                    <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
-                        <button
-                            class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold text-sm">Explore
-                            Menu</button>
-                        <button class="btn-magnetic rounded-xl px-5 h-11 glass text-white font-semibold text-sm">Reserve
-                            Table</button>
-                    </div>
-                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Today's Sales</p>
-                            <p class="font-display text-lg font-bold text-white">Rp 31M</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Visitors</p>
-                            <p class="font-display text-lg font-bold text-white">9.8K</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Promotion</p>
-                            <p class="font-display text-lg font-bold text-amber-300">2 Live</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Rating</p>
-                            <p class="font-display text-lg font-bold text-white">4.8 ★</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 5. Gyukatsu -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group mb-10" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/31406831/pexels-photo-31406831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"
-                    style="background:linear-gradient(180deg, rgba(5,7,15,.5) 0%, rgba(5,7,15,.7) 50%, rgba(5,7,15,.95) 100%);">
-                </div>
-                <div class="absolute top-6 right-6 glass rounded-full px-3 py-1 text-xs text-red-300">Japan · Premium
-                </div>
-                <div class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-end">
-                    <p class="text-xs uppercase tracking-[0.3em] text-red-300/80 mb-3">日本の味 · Premium Cut</p>
-                    <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Gyukatsu</h3>
-                    <p class="mt-4 text-slate-200 max-w-xl text-sm sm:text-base">Wagyu cutlet, breaded crisp and seared
-                        at your table. A Japanese ritual of texture and taste, served premium.</p>
-                    <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <button
-                            class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-red-600 to-rose-700 text-white font-semibold text-sm">Reserve
-                            Experience</button>
-                        <button
-                            class="btn-magnetic rounded-xl px-5 h-11 glass text-white font-semibold text-sm">Explore</button>
-                    </div>
-                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Today's Sales</p>
-                            <p class="font-display text-lg font-bold text-white">Rp 67M</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Visitors</p>
-                            <p class="font-display text-lg font-bold text-white">7.2K</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Promotion</p>
-                            <p class="font-display text-lg font-bold text-red-300">1 Live</p>
-                        </div>
-                        <div class="glass rounded-2xl p-3">
-                            <p class="text-[10px] uppercase tracking-wider text-slate-400">Rating</p>
-                            <p class="font-display text-lg font-bold text-white">4.9 ★</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 6. Tasty Kitchen -->
-            <article class="reveal relative rounded-[2rem] overflow-hidden grad-border group" data-parallax>
-                <div class="brand-bg absolute inset-0 scale-110 transition-transform duration-700 group-hover:scale-125"
-                    style="background-image:url('https://images.pexels.com/photos/35546716/pexels-photo-35546716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940')">
-                </div>
-                <div class="brand-scrim absolute inset-0"></div>
-                <div class="absolute top-6 left-6 glass rounded-full px-3 py-1 text-xs text-emerald-200">Modern ·
-                    Trending</div>
-                <div class="relative p-8 sm:p-12 lg:p-16 min-h-[28rem] flex flex-col justify-end items-end text-right">
-                    <div class="max-w-xl">
-                        <p class="text-xs uppercase tracking-[0.3em] text-emerald-300/80 mb-3">Chef's Recommendation</p>
-                        <h3 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Tasty Kitchen</h3>
-                        <p class="mt-4 text-slate-200 text-sm sm:text-base">Modern comfort food with a chef's touch.
-                            Globally inspired, locally loved, always trending.</p>
-                        <div class="mt-6 inline-flex glass rounded-2xl px-4 py-2 text-sm text-emerald-200">📈 Trending:
-                            Truffle Mushroom Pasta</div>
-                        <div class="mt-6 flex flex-wrap items-center justify-end gap-3">
-                            <button
-                                class="btn-magnetic rounded-xl px-5 h-11 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm">Explore
-                                Menu</button>
-                            <button
-                                class="btn-magnetic rounded-xl px-5 h-11 glass text-white font-semibold text-sm">Book
-                                Table</button>
-                        </div>
-                        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Today's Sales</p>
-                                <p class="font-display text-lg font-bold text-white">Rp 44M</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Visitors</p>
-                                <p class="font-display text-lg font-bold text-white">12.6K</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Promotion</p>
-                                <p class="font-display text-lg font-bold text-emerald-300">4 Live</p>
-                            </div>
-                            <div class="glass rounded-2xl p-3">
-                                <p class="text-[10px] uppercase tracking-wider text-slate-400">Rating</p>
-                                <p class="font-display text-lg font-bold text-white">4.8 ★</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- ============ PROMOTION SLIDER ============ -->
-        <section id="promotion" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="flex items-end justify-between mb-6">
-                <div>
-                    <p class="text-xs uppercase tracking-widest text-slate-400">Campaign</p>
-                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Live Promotions</h2>
-                </div>
-                <div class="flex gap-2">
-                    <button id="promo-prev"
-                        class="glass rounded-xl w-10 h-10 flex items-center justify-center text-white hover:ring-1 hover:ring-white/20">‹</button>
-                    <button id="promo-next"
-                        class="glass rounded-xl w-10 h-10 flex items-center justify-center text-white hover:ring-1 hover:ring-white/20">›</button>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white font-heading">
+                    Welcome Back,<br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-acc-blue via-acc-blue-glow to-acc-purple">Trans
+                        Food & Beverage Official</span>
+                </h1>
+                <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed">
+                    Manage all Trans F&B brands in one premium dashboard. Real-time insights, multi-brand supervision,
+                    and national performance optimization.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-3 justify-center sm:justify-start">
+                    <a href="#brands"
+                        class="glass-button-primary px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white flex items-center space-x-2">
+                        <span>Explore Brands</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#performance"
+                        class="glass-button px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-chart-line text-acc-blue"></i>
+                        <span>View Analytics</span>
+                    </a>
                 </div>
             </div>
-            <div class="relative rounded-[2rem] overflow-hidden grad-border h-[22rem] sm:h-[26rem]">
-                <div id="promo-track" class="relative h-full"></div>
-                <div id="promo-dots" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2"></div>
+
+            <!-- Quick Status Box -->
+            <div class="relative z-10 w-full sm:w-auto">
+                <div class="glass-card p-6 rounded-3xl space-y-4 min-w-[260px] border border-white/10 shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400">System Status</span>
+                        <span
+                            class="px-2.5 py-1 rounded-full bg-acc-green/15 text-acc-green text-[10px] font-bold">Operational</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-400">Active Outlets</span>
+                            <span class="font-bold text-white">450+ Stores</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-400">Network Uptime</span>
+                            <span class="font-bold text-acc-green">99.98%</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-400">Sync Frequency</span>
+                            <span class="font-bold text-acc-blue">Real-Time</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ============ ANALYTICS ============ -->
-        <section id="analytics" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-6 reveal">
-                <p class="text-xs uppercase tracking-widest text-slate-400">Performance</p>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Analytics Overview</h2>
+        <!-- OVERVIEW CARDS (4 PREMIUM CARDS) -->
+        <section class="reveal-element grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div
+                    class="absolute -right-10 -bottom-10 w-32 h-32 bg-acc-blue/15 rounded-full blur-2xl group-hover:scale-150 transition-transform">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-acc-blue/15 border border-acc-blue/30 text-acc-blue flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-acc-green/15 text-acc-green">+12.5%
+                        YoY</span>
+                </div>
+                <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Total Brand</h3>
+                <div class="text-3xl font-black text-white tracking-tighter mb-1 font-display">6 <span
+                        class="text-xs font-normal text-slate-400">Premium Brands</span></div>
+                <p class="text-[11px] text-slate-500">The Coffee Bean, Wendy's, Baskin-Robbins, dll.</p>
             </div>
-            <div class="grid lg:grid-cols-3 gap-5">
-                <!-- Revenue chart -->
-                <div class="lg:col-span-2 reveal grad-border rounded-3xl glass p-6 sm:p-8">
-                    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+
+            <!-- Card 2 -->
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div
+                    class="absolute -right-10 -bottom-10 w-32 h-32 bg-acc-purple/15 rounded-full blur-2xl group-hover:scale-150 transition-transform">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-acc-purple/15 border border-acc-purple/30 text-acc-purple flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-acc-green/15 text-acc-green">+8
+                        New</span>
+                </div>
+                <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Total Outlet</h3>
+                <div class="text-3xl font-black text-white tracking-tighter mb-1 font-display" id="counter-outlets">458
+                </div>
+                <p class="text-[11px] text-slate-500">Tersebar di seluruh kota besar di Indonesia.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div
+                    class="absolute -right-10 -bottom-10 w-32 h-32 bg-acc-green/15 rounded-full blur-2xl group-hover:scale-150 transition-transform">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-acc-green/15 border border-acc-green/30 text-acc-green flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <span
+                        class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-acc-green/15 text-acc-green">+18.4%</span>
+                </div>
+                <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Today's Revenue</h3>
+                <div class="text-3xl font-black text-white tracking-tighter mb-1 font-display">Rp 4.2B</div>
+                <p class="text-[11px] text-slate-500">Akumulasi seluruh transaksi nasional hari ini.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="glass-card p-6 rounded-3xl relative overflow-hidden group">
+                <div
+                    class="absolute -right-10 -bottom-10 w-32 h-32 bg-acc-yellow/15 rounded-full blur-2xl group-hover:scale-150 transition-transform">
+                </div>
+                <div class="flex items-center justify-between mb-4">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-acc-yellow/15 border border-acc-yellow/30 text-acc-yellow flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span
+                        class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-acc-green/15 text-acc-green">Excellent</span>
+                </div>
+                <h3 class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Customer Satisfaction
+                </h3>
+                <div class="text-3xl font-black text-white tracking-tighter mb-1 font-display">4.92 <span
+                        class="text-xs font-normal text-slate-400">/ 5.0</span></div>
+                <p class="text-[11px] text-slate-500">Berdasarkan 45,000+ ulasan terverifikasi.</p>
+            </div>
+        </section>
+
+        <!-- BRANDS SECTION (DIFFERENT DESIGN FOR EACH BRAND) -->
+        <section id="brands" class="space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3 reveal-element">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-blue">Jaringan Kuliner
+                    Nasional</span>
+                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">Our Flagship Brands</h2>
+                <p class="text-sm text-slate-400 font-light">Setiap brand dirancang dengan identitas dan pengalaman
+                    visual unik kelas dunia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- 1. The Coffee Bean & Tea Leaf -->
+                <div
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-amber-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-amber-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-amber-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-[11px] font-bold uppercase tracking-widest">Coffee
+                                & Beverage</span>
+                            <span class="text-xs font-mono text-amber-300"><i
+                                    class="fa-solid fa-star text-amber-400"></i> 4.9 (12.4k ulasan)</span>
+                        </div>
                         <div>
-                            <h3 class="font-display text-lg font-bold text-white">Revenue & Orders</h3>
-                            <p class="text-xs text-slate-400">Last 12 months · dummy data</p>
+                            <h3 class="text-2xl sm:text-3xl font-black font-heading text-white mb-2">The Coffee Bean &
+                                Tea Leaf</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Nikmati racikan biji
+                                kopi pilihan kualitas dunia dan daun teh premium yang disajikan dengan standar kafe
+                                internasional.</p>
                         </div>
-                        <div class="flex gap-2 text-xs">
-                            <span class="glass rounded-full px-3 py-1 text-blue-300">● Revenue</span>
-                            <span class="glass rounded-full px-3 py-1 text-violet-300">● Orders</span>
-                        </div>
-                    </div>
-                    <div class="relative h-64">
-                        <canvas id="chart-revenue" class="w-full h-full"></canvas>
-                    </div>
-                </div>
-                <!-- Visitors donut -->
-                <div class="reveal grad-border rounded-3xl glass p-6 sm:p-8" style="transition-delay:.1s">
-                    <h3 class="font-display text-lg font-bold text-white">Visitors by Brand</h3>
-                    <p class="text-xs text-slate-400 mb-6">Share of traffic</p>
-                    <div class="relative h-48 flex items-center justify-center">
-                        <canvas id="chart-donut" class="w-full h-full"></canvas>
-                        <div class="absolute text-center">
-                            <p class="font-display text-2xl font-bold text-white">128K</p>
-                            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Total</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 space-y-2 text-sm" id="donut-legend"></div>
-                </div>
-            </div>
-
-            <!-- Growth bars -->
-            <div class="mt-5 reveal grad-border rounded-3xl glass p-6 sm:p-8">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <h3 class="font-display text-lg font-bold text-white">Monthly Growth</h3>
-                        <p class="text-xs text-slate-400">Revenue in millions (Rp)</p>
-                    </div>
-                    <span class="glass rounded-full px-3 py-1 text-xs text-emerald-300">+18.2% YoY</span>
-                </div>
-                <div class="flex items-end justify-between gap-2 sm:gap-3 h-44" id="growth-bars"></div>
-                <div class="flex justify-between mt-3 text-[10px] text-slate-500" id="growth-labels"></div>
-            </div>
-        </section>
-
-        <!-- ============ NEWS ============ -->
-        <section id="news" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="flex items-end justify-between mb-6 reveal">
-                <div>
-                    <p class="text-xs uppercase tracking-widest text-slate-400">News</p>
-                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Latest Stories</h2>
-                </div>
-                <a href="#" class="text-sm text-blue-300 hover:text-blue-200">View all →</a>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5">
-                <!-- big card -->
-                <article class="reveal md:col-span-2 grad-border rounded-3xl glass overflow-hidden group">
-                    <div class="relative h-56 sm:h-72 overflow-hidden">
-                        <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            alt="news"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent">
-                        </div>
-                        <div class="absolute top-4 left-4 glass rounded-full px-3 py-1 text-xs text-cyan-200">Expansion
-                        </div>
-                    </div>
-                    <div class="p-6 sm:p-8">
-                        <p class="text-xs text-slate-400">Aug 06, 2026 · 4 min read</p>
-                        <h3 class="font-display text-xl sm:text-2xl font-bold text-white mt-2">Trans F&amp;B Opens 50th
-                            Coffee Bean Outlet in Southeast Asia</h3>
-                        <p class="text-sm text-slate-400 mt-3">A milestone expansion marking the brand's strongest
-                            regional footprint yet, with new flagship stores in Jakarta and Singapore.</p>
-                        <button
-                            class="mt-5 btn-magnetic rounded-xl px-5 h-10 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-sm font-semibold">Read
-                            More</button>
-                    </div>
-                </article>
-                <!-- side cards -->
-                <div class="flex flex-col gap-5">
-                    <article class="reveal grad-border rounded-3xl glass overflow-hidden group flex flex-col"
-                        style="transition-delay:.05s">
-                        <div class="relative h-40 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/11385490/pexels-photo-11385490.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                alt="news"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                            <div class="absolute top-3 left-3 glass rounded-full px-3 py-1 text-xs text-amber-200">
-                                Campaign</div>
-                        </div>
-                        <div class="p-5">
-                            <p class="text-xs text-slate-400">Aug 02, 2026</p>
-                            <h3 class="font-display text-base font-bold text-white mt-1">New "Brew &amp; You" Loyalty
-                                Program Launches</h3>
-                            <button class="mt-3 text-sm text-blue-300 hover:text-blue-200">Read More →</button>
-                        </div>
-                    </article>
-                    <article class="reveal grad-border rounded-3xl glass overflow-hidden group flex flex-col"
-                        style="transition-delay:.1s">
-                        <div class="relative h-40 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/37696167/pexels-photo-37696167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                                alt="news"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                            <div class="absolute top-3 left-3 glass rounded-full px-3 py-1 text-xs text-pink-200">Award
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 1.1B</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-amber-400">32,450</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Promotion</span>
+                                <span class="font-bold text-sm text-white">Diskon 30% CBD</span>
                             </div>
                         </div>
-                        <div class="p-5">
-                            <p class="text-xs text-slate-400">Jul 28, 2026</p>
-                            <h3 class="font-display text-base font-bold text-white mt-1">Baskin Robbins Wins Flavor of
-                                the Year 2026</h3>
-                            <button class="mt-3 text-sm text-blue-300 hover:text-blue-200">Read More →</button>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('The Coffee Bean & Tea Leaf', 'Nikmati kopi artisan terbaik dengan suasana mewah dan eksklusif.')"
+                                class="px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(217,119,6,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">142 Outlets Active</span>
                         </div>
-                    </article>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ============ EVENT TIMELINE ============ -->
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-10 reveal text-center">
-                <p class="text-xs uppercase tracking-widest text-slate-400">Events</p>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Upcoming Highlights</h2>
-            </div>
-            <div class="relative">
+                <!-- 2. Wendy's -->
                 <div
-                    class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-violet-500/40 to-transparent sm:-translate-x-1/2">
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-red-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-red-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-red-500/20 border border-red-500/40 text-red-400 text-[11px] font-bold uppercase tracking-widest">Fast
+                                Casual Dining</span>
+                            <span class="text-xs font-mono text-red-300"><i
+                                    class="fa-solid fa-star text-yellow-400"></i> 4.8 (18.2k ulasan)</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Wendy's Indonesia
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Burger persegi
+                                ikonik dengan daging sapi segar pilihan (never frozen) serta Baked Potato legendaris.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 1.4B</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-red-400">48,200</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Best Seller</span>
+                                <span class="font-bold text-sm text-white">Baconator Combo</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('Wendy\'s Indonesia', 'Nikmati kelezatan burger daging segar kualitas premium.')"
+                                class="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(239,68,68,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">115 Outlets Active</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="space-y-8" id="timeline"></div>
+
+                <!-- 3. Baskin-Robbins -->
+                <div
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-pink-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-pink-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-pink-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-pink-500/20 border border-pink-500/40 text-pink-400 text-[11px] font-bold uppercase tracking-widest">Premium
+                                Ice Cream</span>
+                            <span class="text-xs font-mono text-pink-300"><i
+                                    class="fa-solid fa-star text-yellow-400"></i> 4.9 (9.8k ulasan)</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Baskin-Robbins</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">31 pilihan rasa es
+                                krim premium untuk setiap hari dalam sebulan, membawa kebahagiaan di setiap scoop.</p>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 750M</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-pink-400">22,100</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Promo</span>
+                                <span class="font-bold text-sm text-white">Value Scoop Deal</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('Baskin-Robbins', 'Rasakan kelezatan 31 varian rasa es krim kelas dunia.')"
+                                class="px-6 py-3 rounded-xl bg-pink-600 hover:bg-pink-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(236,72,153,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">98 Outlets Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Warung Wardani -->
+                <div
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-yellow-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-yellow-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-yellow-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/40 text-yellow-400 text-[11px] font-bold uppercase tracking-widest">Nusantara
+                                Heritage</span>
+                            <span class="text-xs font-mono text-yellow-300"><i
+                                    class="fa-solid fa-star text-yellow-400"></i> 4.95 (15.1k ulasan)</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Warung Wardani</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Autentik kuliner
+                                legendaris Bali dengan resep turun-temurun seperti Nasi Campur Bali dan Ayam Goreng
+                                khas.</p>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 620M</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-yellow-400">19,800</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Best Menu</span>
+                                <span class="font-bold text-sm text-white">Nasi Campur Spesial</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('Warung Wardani', 'Keautentikan rasa kuliner tradisional Bali di setiap sajian.')"
+                                class="px-6 py-3 rounded-xl bg-yellow-600 hover:bg-yellow-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(202,138,4,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">35 Outlets Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Gyukatsu Niku Niku -->
+                <div
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-blue-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-400 text-[11px] font-bold uppercase tracking-widest">Japanese
+                                Grill</span>
+                            <span class="text-xs font-mono text-blue-300"><i
+                                    class="fa-solid fa-star text-yellow-400"></i> 4.9 (8.4k ulasan)</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Gyukatsu Niku Niku
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Daging sapi katsu
+                                premium ala Jepang dengan batu bakar personal (ishiyaki) untuk tingkat kematangan
+                                sempurna.</p>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 480M</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-blue-400">14,200</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Style</span>
+                                <span class="font-bold text-sm text-white">Ishiyaki Experience</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('Gyukatsu Niku Niku', 'Nikmati sensasi memanggang daging wagyu katsu sendiri di atas batu bakar.')"
+                                class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">28 Outlets Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Tasty Kitchen -->
+                <div
+                    class="reveal-element glass-card p-8 sm:p-10 rounded-[2.5rem] relative overflow-hidden group border border-purple-500/20">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-950/40 via-trans-navy to-trans-navy-dark z-0">
+                    </div>
+                    <div
+                        class="absolute -right-20 -bottom-20 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-400 text-[11px] font-bold uppercase tracking-widest">Asian
+                                Cuisine</span>
+                            <span class="text-xs font-mono text-purple-300"><i
+                                    class="fa-solid fa-star text-yellow-400"></i> 4.85 (11.6k ulasan)</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-black text-white mb-2">Tasty Kitchen</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Kelezatan kuliner
+                                khas Hongkong dan Chinese Comfort Food modern dengan racikan bumbu rempah pilihan.</p>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Today's Sales</span>
+                                <span class="font-bold text-sm text-white">Rp 510M</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
+                                <span class="block text-[10px] text-slate-400 uppercase">Visitors</span>
+                                <span class="font-bold text-sm text-purple-400">16,500</span>
+                            </div>
+                            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 col-span-2 sm:col-span-1">
+                                <span class="block text-[10px] text-slate-400 uppercase">Chef Rec</span>
+                                <span class="font-bold text-sm text-white">Roasted Duck Rice</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 flex items-center justify-between">
+                            <button
+                                onclick="openBrandModal('Tasty Kitchen', 'Sajian kuliner khas orientalis modern dengan cita rasa otentik.')"
+                                class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(147,51,234,0.4)] flex items-center space-x-2">
+                                <span>Explore Brand</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <span class="text-xs text-slate-400 font-mono">39 Outlets Active</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- ============ GALLERY ============ -->
-        <section id="gallery" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-6 reveal">
-                <p class="text-xs uppercase tracking-widest text-slate-400">Gallery</p>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Moments &amp; Spaces</h2>
+        <!-- PROMOTION SECTION (AUTOMATIC SLIDER) -->
+        <section id="promotion" class="reveal-element space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-purple">Penawaran
+                        Eksklusif</span>
+                    <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Active Campaigns & Promotions
+                    </h2>
+                </div>
+                <div class="flex space-x-2">
+                    <button id="slider-prev"
+                        class="w-10 h-10 rounded-xl glass-button flex items-center justify-center text-white hover:bg-white/10"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <button id="slider-next"
+                        class="w-10 h-10 rounded-xl glass-button flex items-center justify-center text-white hover:bg-white/10"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4" id="gallery-grid"></div>
+
+            <!-- Promotion Slider Container -->
+            <div class="glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-white/10">
+                <div
+                    class="absolute -right-20 -bottom-20 w-80 h-80 bg-acc-blue/15 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div id="promo-slider-track" class="grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500">
+                    <!-- Promo 1 -->
+                    <div
+                        class="glass-card p-6 rounded-3xl space-y-4 border border-acc-blue/30 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 px-4 py-1.5 bg-acc-blue text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-2xl">
+                            Mega Deal</div>
+                        <span class="text-xs text-slate-400 font-mono">Berlaku di Semua Outlet</span>
+                        <h3 class="text-xl font-bold font-heading text-white">Trans F&B PayDay Extravaganza</h3>
+                        <p class="text-xs text-slate-300 font-light">Diskon spesial hingga 50% untuk seluruh menu
+                            pilihan di Coffee Bean, Wendy's, dan Baskin-Robbins menggunakan QRIS.</p>
+                        <div class="pt-2">
+                            <button
+                                onclick="openPromoModal('Trans F&B PayDay Extravaganza', 'Diskon spesial 50% di seluruh brand Trans F&B.')"
+                                class="w-full py-3 rounded-xl bg-acc-blue hover:bg-blue-600 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(37,99,235,0.4)]">
+                                Klaim Promo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Promo 2 -->
+                    <div
+                        class="glass-card p-6 rounded-3xl space-y-4 border border-acc-purple/30 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 px-4 py-1.5 bg-acc-purple text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-2xl">
+                            Bundle Spesial</div>
+                        <span class="text-xs text-slate-400 font-mono">Khusus Dine-In & Takeaway</span>
+                        <h3 class="text-xl font-bold font-heading text-white">Wendy's Family Feast Package</h3>
+                        <p class="text-xs text-slate-300 font-light">Paket hemat keluarga berisi 4 burger pilihan, 4
+                            fries, dan minuman segar dengan harga spesial akhir pekan.</p>
+                        <div class="pt-2">
+                            <button
+                                onclick="openPromoModal('Wendy\'s Family Feast Package', 'Paket hemat keluarga spesial akhir pekan.')"
+                                class="w-full py-3 rounded-xl bg-acc-purple hover:bg-purple-600 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(147,51,234,0.4)]">
+                                Klaim Promo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Promo 3 -->
+                    <div
+                        class="glass-card p-6 rounded-3xl space-y-4 border border-acc-green/30 relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 px-4 py-1.5 bg-acc-green text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-2xl">
+                            Loyalty Reward</div>
+                        <span class="text-xs text-slate-400 font-mono">All-Store Member Rewards</span>
+                        <h3 class="text-xl font-bold font-heading text-white">Baskin-Robbins Happy Scoop Day</h3>
+                        <p class="text-xs text-slate-300 font-light">Beli 1 Get 1 Free untuk semua varian Scoop Ice
+                            Cream favoritmu setiap hari Rabu menggunakan aplikasi CT Corp.</p>
+                        <div class="pt-2">
+                            <button
+                                onclick="openPromoModal('Baskin-Robbins Happy Scoop Day', 'Beli 1 Get 1 Free setiap hari Rabu.')"
+                                class="w-full py-3 rounded-xl bg-acc-green hover:bg-green-600 text-white font-heading font-semibold text-xs tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+                                Klaim Promo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- ============ TESTIMONIAL ============ -->
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div class="mb-8 reveal text-center">
-                <p class="text-xs uppercase tracking-widest text-slate-400">Testimonials</p>
-                <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">What People Say</h2>
+        <!-- ANALYTICS SECTION -->
+        <section id="performance" class="reveal-element space-y-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-blue">Executive
+                        Intelligence</span>
+                    <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Performance Analytics & Growth
+                    </h2>
+                </div>
+                <div class="flex items-center space-x-2 bg-white/5 border border-white/10 p-1 rounded-xl">
+                    <button
+                        class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-acc-blue text-white shadow">Bulanan</button>
+                    <button
+                        class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-white">Tahunan</button>
+                </div>
             </div>
-            <div class="relative overflow-hidden grad-border rounded-3xl glass p-6 sm:p-10">
-                <div id="testimonial-track" class="flex transition-transform duration-700 ease-out"></div>
-                <div class="flex justify-center gap-2 mt-6" id="testimonial-dots"></div>
-            </div>
-        </section>
 
-        <!-- ============ FOOTER ============ -->
-        <footer class="relative mt-16 border-t border-white/5">
-            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent">
-            </div>
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-                <div class="grid md:grid-cols-4 gap-10">
-                    <div class="md:col-span-2">
-                        <div class="flex items-center gap-3 mb-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Main Chart Simulation Box -->
+                <div class="lg:col-span-2 glass-panel p-6 sm:p-8 rounded-[2.5rem] border border-white/10 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-white">Revenue Trajectory (Q1 - Q3)</h3>
+                            <p class="text-xs text-slate-400">Tren pertumbuhan pendapatan bersih nasional</p>
+                        </div>
+                        <span class="text-xs font-mono text-acc-green font-bold">+24.8% vs Tahun Lalu</span>
+                    </div>
+
+                    <!-- Visual Simulated Bar Chart -->
+                    <div class="h-64 flex items-end justify-between gap-3 pt-8 px-4 border-b border-white/10">
+                        <div class="w-full flex flex-col items-center gap-2 group">
                             <div
-                                class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500 flex items-center justify-center">
-                                <span class="font-display font-extrabold text-white text-lg">T</span>
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 3.1B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-blue/40 to-acc-blue rounded-t-xl h-[55%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Jan</span>
+                        </div>
+                        <div class="w-full flex flex-col items-center gap-2 group">
+                            <div
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 3.4B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-blue/40 to-acc-blue rounded-t-xl h-[65%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Feb</span>
+                        </div>
+                        <div class="w-full flex flex-col items-center gap-2 group">
+                            <div
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 3.9B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-blue/40 to-acc-blue rounded-t-xl h-[75%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Mar</span>
+                        </div>
+                        <div class="w-full flex flex-col items-center gap-2 group">
+                            <div
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 3.7B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-purple/40 to-acc-purple rounded-t-xl h-[70%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Apr</span>
+                        </div>
+                        <div class="w-full flex flex-col items-center gap-2 group">
+                            <div
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 4.1B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-purple/40 to-acc-purple rounded-t-xl h-[82%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Mei</span>
+                        </div>
+                        <div class="w-full flex flex-col items-center gap-2 group">
+                            <div
+                                class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                                Rp 4.5B</div>
+                            <div
+                                class="w-full bg-gradient-to-t from-acc-purple/40 to-acc-purple rounded-t-xl h-[95%] transition-all duration-500 group-hover:brightness-125">
+                            </div>
+                            <span class="text-[11px] text-slate-400">Jun</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-xs text-slate-400 px-2">
+                        <span><i class="fa-solid fa-circle text-acc-blue text-[8px]"></i> Q1 Average</span>
+                        <span><i class="fa-solid fa-circle text-acc-purple text-[8px]"></i> Q2 Peak Performance</span>
+                        <span class="font-bold text-white">Total 2026 YTD: Rp 23.8B</span>
+                    </div>
+                </div>
+
+                <!-- Side Metrics -->
+                <div
+                    class="glass-panel p-6 sm:p-8 rounded-[2.5rem] border border-white/10 space-y-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-lg text-white mb-1">Brand Contribution</h3>
+                        <p class="text-xs text-slate-400 mb-6">Persentase kontribusi pendapatan per brand</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-white font-medium">Wendy's Indonesia</span>
+                                    <span class="text-acc-blue font-bold">32%</span>
+                                </div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-acc-blue rounded-full" style="width: 32%;"></div>
+                                </div>
                             </div>
                             <div>
-                                <p class="font-display font-bold text-white">Trans <span
-                                        class="text-grad-blue">F&amp;B</span></p>
-                                <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Food &amp; Beverage
-                                    Official</p>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-white font-medium">The Coffee Bean & Tea Leaf</span>
+                                    <span class="text-amber-400 font-bold">28%</span>
+                                </div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-amber-500 rounded-full" style="width: 28%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-white font-medium">Baskin-Robbins</span>
+                                    <span class="text-pink-400 font-bold">18%</span>
+                                </div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-pink-500 rounded-full" style="width: 18%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-white font-medium">Brand Lainnya (Wardani, dll)</span>
+                                    <span class="text-acc-purple font-bold">22%</span>
+                                </div>
+                                <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-acc-purple rounded-full" style="width: 22%;"></div>
+                                </div>
                             </div>
                         </div>
-                        <p class="text-sm text-slate-400 max-w-md">Managing Indonesia's most loved food &amp; beverage
-                            brands under one premium ecosystem. Crafted with care, served with pride.</p>
-                        <div class="flex gap-3 mt-5">
-                            <a href="#"
-                                class="glass rounded-xl w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white hover:ring-1 hover:ring-white/20"
-                                aria-label="Instagram">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 1.8a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2Zm6.3-3.4a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z" />
-                                </svg>
-                            </a>
-                            <a href="#"
-                                class="glass rounded-xl w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white hover:ring-1 hover:ring-white/20"
-                                aria-label="X">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-7-6.1 7H1.7l8-9.2L1 2h7l4.8 6.4L18.9 2Zm-1.2 18h1.7L7.4 3.8H5.6L17.7 20Z" />
-                                </svg>
-                            </a>
-                            <a href="#"
-                                class="glass rounded-xl w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white hover:ring-1 hover:ring-white/20"
-                                aria-label="Facebook">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z" />
-                                </svg>
-                            </a>
-                            <a href="#"
-                                class="glass rounded-xl w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white hover:ring-1 hover:ring-white/20"
-                                aria-label="YouTube">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.7-1.7C19.4 5.2 12 5.2 12 5.2s-7.4 0-8.9.4A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.7 1.7c1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4a2.5 2.5 0 0 0 1.7-1.7c.4-1.5.4-4.7.4-4.7Zm-13 3.5v-7l6 3.5-6 3.5Z" />
-                                </svg>
-                            </a>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                        <span class="block text-[11px] text-slate-400">Target Tahunan Tercapai</span>
+                        <span class="font-display font-black text-xl text-acc-green">86.5%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section id="news" class="reveal-element space-y-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-blue">Informasi Terkini</span>
+                    <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Latest Corporate News</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- News 1 -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                            <span><i class="fa-regular fa-calendar text-acc-blue mr-1"></i> 05 Agustus 2026</span>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full bg-acc-blue/15 text-acc-blue text-[10px] font-bold">Expansion</span>
                         </div>
+                        <h3
+                            class="font-heading font-bold text-lg text-white group-hover:text-acc-blue transition-colors">
+                            Trans F&B Resmikan 10 Outlet Baru di Jabodetabek</h3>
+                        <p class="text-xs text-slate-300 font-light leading-relaxed">PT Trans Food & Beverage memperluas
+                            jangkauan pasar dengan membuka 10 outlet gabungan Coffee Bean dan Wendy's di kawasan
+                            strategis.</p>
                     </div>
-                    <div>
-                        <h4 class="font-display text-sm font-bold text-white mb-4">Explore</h4>
-                        <ul class="space-y-2 text-sm text-slate-400">
-                            <li><a href="#brands" class="hover:text-white">Brands</a></li>
-                            <li><a href="#promotion" class="hover:text-white">Campaign</a></li>
-                            <li><a href="#analytics" class="hover:text-white">Performance</a></li>
-                            <li><a href="#news" class="hover:text-white">News</a></li>
-                            <li><a href="#gallery" class="hover:text-white">Gallery</a></li>
-                        </ul>
+                    <button
+                        onclick="openNewsModal('Trans F&B Resmikan 10 Outlet Baru di Jabodetabek', 'PT Trans Food & Beverage memperluas jangkauan pasar dengan membuka 10 outlet gabungan Coffee Bean dan Wendy\'s di kawasan strategis Jabodetabek guna mendekatkan diri kepada para pelanggan setia.')"
+                        class="text-xs font-bold text-acc-blue flex items-center space-x-2 pt-2 hover:underline">
+                        <span>Read Full Story</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- News 2 -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                            <span><i class="fa-regular fa-calendar text-acc-purple mr-1"></i> 28 Juli 2026</span>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full bg-acc-purple/15 text-acc-purple text-[10px] font-bold">Innovation</span>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg text-white group-hover:text-acc-purple transition-colors">
+                            Peluncuran Fitur Digital Ordering & Loyalty v3.0</h3>
+                        <p class="text-xs text-slate-300 font-light leading-relaxed">Integrasi sistem pemesanan
+                            nirsentuh dan poin reward lintas brand kini resmi dapat dinikmati melalui aplikasi CT Corp
+                            ecosystem.</p>
                     </div>
-                    <div>
-                        <h4 class="font-display text-sm font-bold text-white mb-4">Company</h4>
-                        <ul class="space-y-2 text-sm text-slate-400">
-                            <li><a href="#" class="hover:text-white">About Trans F&amp;B</a></li>
-                            <li><a href="#" class="hover:text-white">Careers</a></li>
-                            <li><a href="#" class="hover:text-white">Press Kit</a></li>
-                            <li><a href="#" class="hover:text-white">Contact</a></li>
-                            <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                        </ul>
+                    <button
+                        onclick="openNewsModal('Peluncuran Fitur Digital Ordering & Loyalty v3.0', 'Integrasi sistem pemesanan nirsentuh dan poin reward lintas brand kini resmi dapat dinikmati melalui aplikasi CT Corp ecosystem untuk memberikan kemudahan bertransaksi.')"
+                        class="text-xs font-bold text-acc-purple flex items-center space-x-2 pt-2 hover:underline">
+                        <span>Read Full Story</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- News 3 -->
+                <div class="glass-card p-6 rounded-3xl space-y-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                            <span><i class="fa-regular fa-calendar text-acc-green mr-1"></i> 14 Juli 2026</span>
+                            <span
+                                class="px-2.5 py-0.5 rounded-full bg-acc-green/15 text-acc-green text-[10px] font-bold">Award</span>
+                        </div>
+                        <h3
+                            class="font-heading font-bold text-lg text-white group-hover:text-acc-green transition-colors">
+                            Trans F&B Raih Penghargaan Best F&B Network 2026</h3>
+                        <p class="text-xs text-slate-300 font-light leading-relaxed">Apresiasi nasional atas komitmen
+                            perusahaan dalam menjaga kualitas produk, pelayanan prima, dan inovasi kuliner
+                            berkelanjutan.</p>
+                    </div>
+                    <button
+                        onclick="openNewsModal('Trans F&B Raih Penghargaan Best F&B Network 2026', 'Apresiasi nasional atas komitmen perusahaan dalam menjaga kualitas produk, pelayanan prima, dan inovasi kuliner berkelanjutan di Indonesia.')"
+                        class="text-xs font-bold text-acc-green flex items-center space-x-2 pt-2 hover:underline">
+                        <span>Read Full Story</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT & TIMELINE SECTION -->
+        <section class="reveal-element space-y-6">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-purple">Agenda Mendatang</span>
+                <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Upcoming Events & Grand Openings
+                </h2>
+            </div>
+
+            <div
+                class="glass-panel p-6 sm:p-8 rounded-[2.5rem] border border-white/10 grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="space-y-2 p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <span
+                        class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-acc-blue/20 text-acc-blue font-bold">15
+                        Agt 2026</span>
+                    <h4 class="font-heading font-bold text-sm text-white pt-2">Grand Opening Wardani</h4>
+                    <p class="text-xs text-slate-400">Pembukaan outlet ke-36 Warung Wardani di Surabaya Grand City.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <span
+                        class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-acc-purple/20 text-acc-purple font-bold">22
+                        Agt 2026</span>
+                    <h4 class="font-heading font-bold text-sm text-white pt-2">Culinary Festival 2026</h4>
+                    <p class="text-xs text-slate-400">Partisipasi akbar seluruh brand Trans F&B di Jakarta Convention
+                        Center.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <span
+                        class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-acc-green/20 text-acc-green font-bold">05
+                        Sep 2026</span>
+                    <h4 class="font-heading font-bold text-sm text-white pt-2">Baskin-Robbins Flavor Launch</h4>
+                    <p class="text-xs text-slate-400">Peluncuran 3 varian rasa es krim edisi spesial musim gugur.</p>
+                </div>
+                <div class="space-y-2 p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <span
+                        class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-acc-yellow/20 text-acc-yellow font-bold">18
+                        Sep 2026</span>
+                    <h4 class="font-heading font-bold text-sm text-white pt-2">Wendy's Anniversary Promo</h4>
+                    <p class="text-xs text-slate-400">Perayaan ulang tahun Wendy's dengan penawaran nasional
+                        spektakuler.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="reveal-element space-y-6">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-blue">Visual Showcase</span>
+                <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">Trans F&B Gallery</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div
+                    class="glass-card h-48 rounded-2xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-gradient-to-br from-amber-900/40 to-trans-navy">
+                    <i
+                        class="fa-solid fa-mug-hot text-4xl text-amber-400/60 group-hover:scale-110 transition-transform"></i>
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                        <span class="text-xs font-bold text-white">The Coffee Bean & Tea Leaf Ambiance</span>
                     </div>
                 </div>
                 <div
-                    class="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p class="text-xs text-slate-500">© 2026 Trans Food &amp; Beverage Official. All rights reserved.
-                    </p>
-                    <p class="text-xs text-slate-500">Crafted with care · Premium Dashboard</p>
+                    class="glass-card h-48 rounded-2xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-gradient-to-br from-red-900/40 to-trans-navy">
+                    <i
+                        class="fa-solid fa-burger text-4xl text-red-400/60 group-hover:scale-110 transition-transform"></i>
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                        <span class="text-xs font-bold text-white">Wendy's Fresh Premium Burger</span>
+                    </div>
+                </div>
+                <div
+                    class="glass-card h-48 rounded-2xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-gradient-to-br from-pink-900/40 to-trans-navy">
+                    <i
+                        class="fa-solid fa-ice-cream text-4xl text-pink-400/60 group-hover:scale-110 transition-transform"></i>
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                        <span class="text-xs font-bold text-white">Baskin-Robbins Ice Cream Station</span>
+                    </div>
+                </div>
+                <div
+                    class="glass-card h-48 rounded-2xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-gradient-to-br from-yellow-900/40 to-trans-navy">
+                    <i
+                        class="fa-solid fa-bowl-rice text-4xl text-yellow-400/60 group-hover:scale-110 transition-transform"></i>
+                    <div
+                        class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4 text-center">
+                        <span class="text-xs font-bold text-white">Warung Wardani Traditional Dish</span>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </section>
+
+        <!-- TESTIMONIAL SECTION -->
+        <section class="reveal-element space-y-6">
+            <div class="text-center max-w-xl mx-auto space-y-2">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-acc-green">Testimoni Pelanggan</span>
+                <h2 class="text-2xl sm:text-3xl font-black font-heading text-white">What Our Customers Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-3xl space-y-4">
+                    <div class="flex items-center space-x-1 text-yellow-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 font-light leading-relaxed">"Suasana di The Coffee Bean sangat
+                        nyaman untuk meeting santai. Kualitas kopi dan pelayanannya selalu memuaskan!"</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-white/5">
+                        <div
+                            class="w-8 h-8 rounded-full bg-acc-blue flex items-center justify-center font-bold text-xs text-white">
+                            AS</div>
+                        <div>
+                            <span class="block font-heading font-bold text-xs text-white">Aditya Pratama</span>
+                            <span class="block text-[10px] text-slate-400">Loyal Customer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl space-y-4">
+                    <div class="flex items-center space-x-1 text-yellow-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 font-light leading-relaxed">"Burger Wendy's benar-benar juara!
+                        Dagingnya terasa segar dan porsinya mengenyangkan. Anak-anak sangat suka."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-white/5">
+                        <div
+                            class="w-8 h-8 rounded-full bg-acc-purple flex items-center justify-center font-bold text-xs text-white">
+                            SN</div>
+                        <div>
+                            <span class="block font-heading font-bold text-xs text-white">Siti Nurhaliza</span>
+                            <span class="block text-[10px] text-slate-400">Food Blogger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-3xl space-y-4">
+                    <div class="flex items-center space-x-1 text-yellow-400 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 font-light leading-relaxed">"Warung Wardani mengobati kerinduan
+                        saya dengan cita rasa masakan Bali yang otentik. Bumbu rempahnya sangat meresap."</p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-white/5">
+                        <div
+                            class="w-8 h-8 rounded-full bg-acc-green flex items-center justify-center font-bold text-xs text-white">
+                            RD</div>
+                        <div>
+                            <span class="block font-heading font-bold text-xs text-white">Rian Darmawan</span>
+                            <span class="block text-[10px] text-slate-400">Culinary Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
-    <!-- back to top -->
-    <button id="to-top"
-        class="fixed bottom-6 right-6 z-40 glass-strong rounded-xl w-11 h-11 flex items-center justify-center text-white opacity-0 pointer-events-none transition-opacity duration-300 hover:ring-1 hover:ring-white/20"
-        aria-label="Back to top">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="m18 15-6-6-6 6" />
-        </svg>
-    </button>
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-white/10 bg-trans-navy-dark py-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <div
+                    class="w-10 h-10 bg-acc-blue rounded-xl flex items-center justify-center font-bold text-xl text-white">
+                    T</div>
+                <div>
+                    <span class="font-display font-black text-white text-lg">PT Trans Food & Beverage</span>
+                    <span class="block text-xs text-slate-400">Part of CT Corp • Official Corporate Dashboard</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 text-sm text-slate-400">
+                <a href="#dashboard" class="hover:text-acc-blue transition-colors">Privacy Policy</a>
+                <a href="#dashboard" class="hover:text-acc-blue transition-colors">Terms of Service</a>
+                <a href="#dashboard" class="hover:text-acc-blue transition-colors">Corporate Support</a>
+            </div>
+            <div class="text-xs text-slate-500">
+                © 2026 TRANS F&B OFFICIAL. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
 
+    <!-- MODAL POPUP (DYNAMIC) -->
+    <div id="general-modal"
+        class="fixed inset-0 z-[10000] bg-trans-navy-dark/85 backdrop-blur-2xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div
+            class="glass-panel w-full max-w-lg rounded-3xl p-6 sm:p-8 relative transform scale-95 transition-all duration-300 border border-white/10 shadow-2xl">
+            <button onclick="closeGeneralModal()"
+                class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 hover:bg-acc-blue text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="space-y-4">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-acc-blue/15 border border-acc-blue/30 text-acc-blue flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-circle-info" id="modal-icon"></i>
+                </div>
+                <h3 id="modal-title" class="font-heading font-bold text-xl text-white">Modal Title</h3>
+                <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Modal content
+                    description goes here.</p>
+                <div class="pt-4">
+                    <button onclick="closeGeneralModal()"
+                        class="glass-button-primary w-full py-3 rounded-xl font-heading font-semibold text-xs text-white uppercase tracking-wider">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="search-modal"
+        class="fixed inset-0 z-[10000] bg-trans-navy-dark/90 backdrop-blur-2xl flex items-start justify-center pt-28 p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-panel w-full max-w-2xl rounded-3xl p-6 relative border border-white/10 shadow-2xl space-y-4">
+            <div class="flex items-center space-x-3 border-b border-white/10 pb-4">
+                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                <input type="text" id="search-input" placeholder="Cari brand, outlet, atau laporan performa..."
+                    class="w-full bg-transparent text-sm text-white outline-none placeholder:text-slate-500">
+                <button onclick="closeSearchModal()"
+                    class="text-xs text-slate-400 hover:text-white px-3 py-1 rounded-lg bg-white/5">ESC</button>
+            </div>
+            <div class="space-y-2 text-xs text-slate-400">
+                <span class="block font-semibold uppercase tracking-wider text-[10px] text-slate-500">Pencarian
+                    Populer</span>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white cursor-pointer hover:bg-acc-blue/20">The
+                        Coffee Bean</span>
+                    <span
+                        class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white cursor-pointer hover:bg-acc-blue/20">Wendy's
+                        Promo</span>
+                    <span
+                        class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white cursor-pointer hover:bg-acc-blue/20">Laporan
+                        Q2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-    /* =========================================================
-   Trans F&B Premium Dashboard — Vanilla JS
-   ========================================================= */
+    document.addEventListener('DOMContentLoaded', () => {
 
-    /* ---------- Particle background ---------- */
-    (function() {
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        let w, h, particles;
+        // 1. Particle Canvas Background Animation
+        const canvas = document.getElementById('particle-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
 
-        function resize() {
-            w = canvas.width = canvas.offsetWidth;
-            h = canvas.height = canvas.offsetHeight;
-            const count = Math.min(70, Math.floor(w / 22));
-            particles = Array.from({
-                length: count
-            }, () => ({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                r: Math.random() * 1.6 + 0.4,
-                vx: (Math.random() - .5) * 0.25,
-                vy: (Math.random() - .5) * 0.25,
-                a: Math.random() * 0.5 + 0.2,
-                hue: Math.random() > 0.5 ? '59,130,246' : '139,92,246'
-            }));
-        }
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
 
-        function tick() {
-            ctx.clearRect(0, 0, w, h);
-            for (const p of particles) {
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0 || p.x > w) p.vx *= -1;
-                if (p.y < 0 || p.y > h) p.vy *= -1;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${p.hue},${p.a})`;
-                ctx.fill();
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.4;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                    const colorArray = ['rgba(59, 130, 246, 0.5)', 'rgba(147, 51, 234, 0.4)',
+                        'rgba(34, 197, 94, 0.3)'
+                    ];
+                    this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
             }
-            requestAnimationFrame(tick);
-        }
-        resize();
-        tick();
-        window.addEventListener('resize', resize);
-    })();
 
-    /* ---------- Mouse parallax light ---------- */
-    (function() {
-        const light = document.getElementById('parallax-light');
-        window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - .5);
-            const y = (e.clientY / window.innerHeight - .5);
-            light.style.transform = `translate(${x*120}px, ${y*120}px)`;
-            light.style.left = (e.clientX - 224) + 'px';
-            light.style.top = (e.clientY - 224) + 'px';
+            const particles = Array.from({
+                length: 45
+            }, () => new Particle());
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        // 2. Scroll Observer for Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
         });
-    })();
 
-    /* ---------- Navbar scroll state ---------- */
-    (function() {
-        const nav = document.getElementById('nav-inner');
-        const onScroll = () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('shadow-2xl', 'shadow-blue-950/40');
-                nav.style.background = 'rgba(7,10,22,0.85)';
-            } else {
-                nav.style.background = '';
-                nav.classList.remove('shadow-2xl', 'shadow-blue-950/40');
-            }
-            document.getElementById('to-top').style.opacity = window.scrollY > 600 ? '1' : '0';
-            document.getElementById('to-top').style.pointerEvents = window.scrollY > 600 ? 'auto' : 'none';
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+
+        // 3. Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 4. Search Modal Toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchModal = document.getElementById('search-modal');
+        const searchInput = document.getElementById('search-input');
+
+        if (searchBtn && searchModal) {
+            searchBtn.addEventListener('click', () => {
+                searchModal.classList.remove('opacity-0', 'pointer-events-none');
+                if (searchInput) searchInput.focus();
+            });
+        }
+
+        window.closeSearchModal = function() {
+            if (searchModal) searchModal.classList.add('opacity-0', 'pointer-events-none');
         };
-        window.addEventListener('scroll', onScroll, {
-            passive: true
-        });
-        onScroll();
-    })();
 
-    /* ---------- Mobile menu ---------- */
-    document.getElementById('menu-btn').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.toggle('open');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.remove('open');
-    }));
-
-    /* ---------- ESC closes search ---------- */
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') document.getElementById('search-bar').classList.add('hidden');
-    });
-
-    /* ---------- Reveal on scroll ---------- */
-    (function() {
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => {
-                if (en.isIntersecting) {
-                    en.target.classList.add('in');
-                    io.unobserve(en.target);
-                }
+        if (searchModal) {
+            searchModal.addEventListener('click', (e) => {
+                if (e.target === searchModal) closeSearchModal();
             });
-        }, {
-            threshold: 0.12
-        });
-        document.querySelectorAll('.reveal, .reveal-scale').forEach(el => io.observe(el));
-    })();
-
-    /* ---------- Count up ---------- */
-    (function() {
-        const els = document.querySelectorAll('.count, [data-count]');
-        const animate = (el) => {
-            const target = parseFloat(el.dataset.count || el.textContent);
-            const decimals = parseInt(el.dataset.decimals || '0');
-            const prefix = el.dataset.prefix || '';
-            const suffix = el.dataset.suffix || '';
-            const dur = 1600;
-            const start = performance.now();
-            const step = (now) => {
-                const p = Math.min((now - start) / dur, 1);
-                const eased = 1 - Math.pow(1 - p, 3);
-                const val = target * eased;
-                el.textContent = prefix + val.toLocaleString('en-US', {
-                    maximumFractionDigits: decimals,
-                    minimumFractionDigits: decimals
-                }) + suffix;
-                if (p < 1) requestAnimationFrame(step);
-            };
-            requestAnimationFrame(step);
-        };
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => {
-                if (en.isIntersecting) {
-                    animate(en.target);
-                    io.unobserve(en.target);
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-        els.forEach(el => io.observe(el));
-    })();
-
-    /* ---------- Magnetic buttons + ripple ---------- */
-    document.querySelectorAll('.btn-magnetic').forEach(btn => {
-        btn.style.position = 'relative';
-        btn.addEventListener('mousemove', (e) => {
-            const r = btn.getBoundingClientRect();
-            const x = e.clientX - r.left - r.width / 2;
-            const y = e.clientY - r.top - r.height / 2;
-            btn.style.transform = `translate(${x*0.15}px, ${y*0.25}px)`;
-        });
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = '';
-        });
-        btn.addEventListener('click', (e) => {
-            const r = btn.getBoundingClientRect();
-            const span = document.createElement('span');
-            span.className = 'ripple';
-            span.style.left = (e.clientX - r.left - 10) + 'px';
-            span.style.top = (e.clientY - r.top - 10) + 'px';
-            span.style.width = span.style.height = '20px';
-            btn.appendChild(span);
-            setTimeout(() => span.remove(), 600);
-        });
-    });
-
-    /* ---------- Brand parallax on scroll ---------- */
-    (function() {
-        const items = document.querySelectorAll('[data-parallax] .brand-bg');
-        window.addEventListener('scroll', () => {
-            items.forEach(el => {
-                const parent = el.closest('[data-parallax]');
-                const r = parent.getBoundingClientRect();
-                const offset = (r.top + r.height / 2 - window.innerHeight / 2) / r.height;
-                el.style.transform = `translateY(${offset*-20}px) scale(1.15)`;
-            });
-        }, {
-            passive: true
-        });
-    })();
-
-    /* ---------- Active nav on scroll ---------- */
-    (function() {
-        const sections = ['hero', 'brands', 'promotion', 'analytics', 'news', 'gallery'];
-        const links = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let cur = 'hero';
-            sections.forEach(id => {
-                const s = document.getElementById(id);
-                if (s && s.getBoundingClientRect().top < 120) cur = id;
-            });
-            links.forEach(l => {
-                l.classList.toggle('active', l.getAttribute('href') === '#' + cur);
-            });
-        }, {
-            passive: true
-        });
-    })();
-
-    /* ---------- Promotion slider ---------- */
-    (function() {
-        const promos = [{
-                title: 'Buy 1 Get 1 — Coffee Bean',
-                desc: 'All signature lattes, every Friday.',
-                tag: 'Coffee',
-                cta: 'Claim',
-                img: 'https://images.pexels.com/photos/15149236/pexels-photo-15149236.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-                grad: 'from-amber-500 to-orange-600'
-            },
-            {
-                title: 'Wendy\'s Combo Fiesta',
-                desc: 'Baconator + Frosty at 30% off this week.',
-                tag: 'Burger',
-                cta: 'Order',
-                img: 'https://images.pexels.com/photos/34407059/pexels-photo-34407059.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-                grad: 'from-red-500 to-rose-600'
-            },
-            {
-                title: '31 Scoops of Summer',
-                desc: 'New tropical flavors at Baskin Robbins.',
-                tag: 'Ice Cream',
-                cta: 'Taste',
-                img: 'https://images.pexels.com/photos/37696167/pexels-photo-37696167.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-                grad: 'from-pink-500 to-fuchsia-600'
-            },
-            {
-                title: 'Nusantara Heritage Feast',
-                desc: 'All-you-can-eat Wardani special menu.',
-                tag: 'Nusantara',
-                cta: 'Reserve',
-                img: 'https://images.pexels.com/photos/37081081/pexels-photo-37081081.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-                grad: 'from-amber-500 to-yellow-600'
-            },
-        ];
-        const track = document.getElementById('promo-track');
-        const dots = document.getElementById('promo-dots');
-        let idx = 0;
-        track.innerHTML = promos.map((p, i) => `
-    <div class="promo-slide absolute inset-0 ${i===0?'opacity-100':'opacity-0'}" data-i="${i}">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('${p.img}')"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/70 to-transparent"></div>
-      <div class="relative h-full flex flex-col justify-center p-8 sm:p-14 max-w-2xl">
-        <span class="glass rounded-full px-3 py-1 text-xs text-white w-fit mb-4">${p.tag}</span>
-        <h3 class="font-display text-2xl sm:text-4xl font-extrabold text-white">${p.title}</h3>
-        <p class="text-slate-300 mt-3 text-sm sm:text-base">${p.desc}</p>
-        <button class="btn-magnetic mt-6 rounded-xl px-6 h-12 bg-gradient-to-r ${p.grad} text-white font-semibold text-sm w-fit">${p.cta} Promotion</button>
-      </div>
-    </div>`).join('');
-        dots.innerHTML = promos.map((_, i) =>
-            `<button class="w-2.5 h-2.5 rounded-full transition ${i===0?'bg-white':'bg-white/30'}" data-i="${i}"></button>`
-        ).join('');
-
-        function go(n) {
-            idx = (n + promos.length) % promos.length;
-            track.querySelectorAll('.promo-slide').forEach(s => s.classList.toggle('opacity-0', +s.dataset.i !==
-                idx));
-            track.querySelectorAll('.promo-slide').forEach(s => s.classList.toggle('opacity-100', +s.dataset.i ===
-                idx));
-            dots.querySelectorAll('button').forEach(d => d.classList.toggle('bg-white', +d.dataset.i === idx));
-            dots.querySelectorAll('button').forEach(d => d.classList.toggle('bg-white/30', +d.dataset.i !== idx));
         }
-        document.getElementById('promo-next').onclick = () => go(idx + 1);
-        document.getElementById('promo-prev').onclick = () => go(idx - 1);
-        dots.querySelectorAll('button').forEach(d => d.onclick = () => go(+d.dataset.i));
-        let auto = setInterval(() => go(idx + 1), 5000);
-        track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
-        track.parentElement.addEventListener('mouseleave', () => auto = setInterval(() => go(idx + 1), 5000));
-    })();
 
-    /* ---------- Revenue line chart (canvas) ---------- */
-    (function() {
-        const canvas = document.getElementById('chart-revenue');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const revenue = [120, 135, 128, 160, 175, 168, 190, 210, 205, 240, 255, 285];
-        const orders = [80, 92, 88, 110, 120, 115, 130, 145, 140, 160, 172, 190];
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSearchModal();
+        });
 
-        function draw() {
-            const dpr = window.devicePixelRatio || 1;
-            const W = canvas.width = canvas.offsetWidth * dpr;
-            const H = canvas.height = canvas.offsetHeight * dpr;
-            ctx.scale(dpr, dpr);
-            const w = canvas.offsetWidth,
-                h = canvas.offsetHeight;
-            ctx.clearRect(0, 0, w, h);
-            const pad = {
-                l: 36,
-                r: 12,
-                t: 12,
-                b: 24
-            };
-            const max = Math.max(...revenue) * 1.15;
-            const xstep = (w - pad.l - pad.r) / (months.length - 1);
-            const yscale = (h - pad.t - pad.b) / max;
-            // grid
-            ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-            ctx.fillStyle = 'rgba(148,163,184,0.6)';
-            ctx.font = '10px Plus Jakarta Sans';
-            for (let i = 0; i <= 4; i++) {
-                const y = pad.t + (h - pad.t - pad.b) * i / 4;
-                ctx.beginPath();
-                ctx.moveTo(pad.l, y);
-                ctx.lineTo(w - pad.r, y);
-                ctx.stroke();
-                ctx.fillText(Math.round(max * (1 - i / 4)), 4, y + 3);
+        // 5. General Modal Handlers
+        window.openBrandModal = function(brandName, brandDesc) {
+            const modal = document.getElementById('general-modal');
+            document.getElementById('modal-title').textContent = brandName;
+            document.getElementById('modal-desc').textContent = brandDesc;
+            document.getElementById('modal-icon').className = "fa-solid fa-utensils text-xl";
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.children[0].classList.remove('scale-95');
+                modal.children[0].classList.add('scale-100');
             }
-            // revenue area
-            const grad = ctx.createLinearGradient(0, pad.t, 0, h - pad.b);
-            grad.addColorStop(0, 'rgba(59,130,246,0.35)');
-            grad.addColorStop(1, 'rgba(59,130,246,0)');
-            ctx.beginPath();
-            revenue.forEach((v, i) => {
-                const x = pad.l + i * xstep,
-                    y = pad.t + (max - v) * yscale;
-                i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-            });
-            ctx.lineTo(pad.l + (months.length - 1) * xstep, h - pad.b);
-            ctx.lineTo(pad.l, h - pad.b);
-            ctx.closePath();
-            ctx.fillStyle = grad;
-            ctx.fill();
-            // revenue line
-            ctx.beginPath();
-            revenue.forEach((v, i) => {
-                const x = pad.l + i * xstep,
-                    y = pad.t + (max - v) * yscale;
-                i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-            });
-            ctx.strokeStyle = '#3b82f6';
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
-            // orders line
-            ctx.beginPath();
-            orders.forEach((v, i) => {
-                const x = pad.l + i * xstep,
-                    y = pad.t + (max - v) * yscale;
-                i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
-            });
-            ctx.strokeStyle = '#8b5cf6';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([4, 4]);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            // points + labels
-            ctx.fillStyle = 'rgba(148,163,184,0.7)';
-            months.forEach((m, i) => {
-                const x = pad.l + i * xstep;
-                ctx.fillText(m, x - 6, h - 6);
-            });
-        }
-        draw();
-        window.addEventListener('resize', draw);
-    })();
+        };
 
-    /* ---------- Donut chart ---------- */
-    (function() {
-        const canvas = document.getElementById('chart-donut');
-        if (!canvas) return;
-        const data = [{
-                label: 'Coffee Bean',
-                val: 32,
-                color: '#3b82f6'
-            },
-            {
-                label: "Wendy's",
-                val: 24,
-                color: '#ef4444'
-            },
-            {
-                label: 'Baskin Robbins',
-                val: 18,
-                color: '#ec4899'
-            },
-            {
-                label: 'Wardani',
-                val: 12,
-                color: '#f59e0b'
-            },
-            {
-                label: 'Gyukatsu',
-                val: 8,
-                color: '#a855f7'
-            },
-            {
-                label: 'Tasty Kitchen',
-                val: 6,
-                color: '#10b981'
-            },
-        ];
-        const ctx = canvas.getContext('2d');
+        window.openPromoModal = function(promoName, promoDesc) {
+            const modal = document.getElementById('general-modal');
+            document.getElementById('modal-title').textContent = promoName;
+            document.getElementById('modal-desc').textContent = promoDesc +
+                " Klaim penawaran ini langsung di outlet terdekat atau melalui aplikasi digital Trans F&B.";
+            document.getElementById('modal-icon').className = "fa-solid fa-tags text-xl";
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.children[0].classList.remove('scale-95');
+                modal.children[0].classList.add('scale-100');
+            }
+        };
 
-        function draw() {
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width = canvas.offsetWidth * dpr;
-            canvas.height = canvas.offsetHeight * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            const w = canvas.offsetWidth,
-                h = canvas.offsetHeight;
-            const cx = w / 2,
-                cy = h / 2,
-                R = Math.min(w, h) / 2 - 6,
-                r = R - 18;
-            const total = data.reduce((s, d) => s + d.val, 0);
-            let a = -Math.PI / 2;
-            data.forEach(d => {
-                const ang = (d.val / total) * Math.PI * 2;
-                ctx.beginPath();
-                ctx.arc(cx, cy, R, a, a + ang);
-                ctx.arc(cx, cy, r, a + ang, a, true);
-                ctx.closePath();
-                ctx.fillStyle = d.color;
-                ctx.fill();
-                a += ang;
+        window.openNewsModal = function(newsTitle, newsDesc) {
+            const modal = document.getElementById('general-modal');
+            document.getElementById('modal-title').textContent = newsTitle;
+            document.getElementById('modal-desc').textContent = newsDesc;
+            document.getElementById('modal-icon').className = "fa-solid fa-newspaper text-xl";
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.children[0].classList.remove('scale-95');
+                modal.children[0].classList.add('scale-100');
+            }
+        };
+
+        window.closeGeneralModal = function() {
+            const modal = document.getElementById('general-modal');
+            if (modal) {
+                modal.children[0].classList.remove('scale-100');
+                modal.children[0].classList.add('scale-95');
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        };
+
+        // 6. Promotion Slider Auto / Manual
+        const sliderTrack = document.getElementById('promo-slider-track');
+        const btnPrev = document.getElementById('slider-prev');
+        const btnNext = document.getElementById('slider-next');
+
+        if (btnPrev && btnNext && sliderTrack) {
+            let scrollAmount = 0;
+            btnNext.addEventListener('click', () => {
+                sliderTrack.scrollBy({
+                    left: 350,
+                    behavior: 'smooth'
+                });
+            });
+            btnPrev.addEventListener('click', () => {
+                sliderTrack.scrollBy({
+                    left: -350,
+                    behavior: 'smooth'
+                });
             });
         }
-        draw();
-        window.addEventListener('resize', draw);
-        document.getElementById('donut-legend').innerHTML = data.map(d => `
-    <div class="flex items-center justify-between">
-      <span class="flex items-center gap-2 text-slate-300"><span class="w-2.5 h-2.5 rounded-full" style="background:${d.color}"></span>${d.label}</span>
-      <span class="text-slate-400">${d.val}%</span>
-    </div>`).join('');
-    })();
 
-    /* ---------- Growth bars ---------- */
-    (function() {
-        const data = [180, 205, 240, 225, 260, 295, 310, 285, 330, 360, 390, 420];
-        const labels = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
-        const max = Math.max(...data);
-        const bars = document.getElementById('growth-bars');
-        const labs = document.getElementById('growth-labels');
-        bars.innerHTML = data.map((v, i) => `
-    <div class="flex-1 group relative">
-      <div class="chart-bar rounded-t-md bg-gradient-to-t from-blue-600 to-violet-500 w-full" style="height:0%" data-h="${(v/max*100).toFixed(0)}"></div>
-      <div class="opacity-0 group-hover:opacity-100 transition absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] glass rounded px-1.5 py-0.5 text-white whitespace-nowrap">Rp ${v}M</div>
-    </div>`).join('');
-        labs.innerHTML = labels.map(l => `<span class="flex-1 text-center">${l}</span>`).join('');
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(en => {
-                if (en.isIntersecting) {
-                    bars.querySelectorAll('.chart-bar').forEach((b, i) => {
-                        setTimeout(() => {
-                            b.style.height = b.dataset.h + '%';
-                            b.style.opacity = '1';
-                        }, i * 60);
-                    });
-                    io.unobserve(en.target);
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-        io.observe(bars);
-    })();
-
-    /* ---------- Timeline ---------- */
-    (function() {
-        const events = [{
-                date: 'Aug 20, 2026',
-                tag: 'Festival',
-                title: 'Coffee Bean Flavor Festival',
-                desc: 'A month-long celebration of rare single-origin beans across all outlets.',
-                color: 'from-amber-500 to-orange-600'
-            },
-            {
-                date: 'Sep 05, 2026',
-                tag: 'Promo',
-                title: "Wendy's National Burger Day",
-                desc: 'Exclusive BOGO deals and limited-edition Baconator variants nationwide.',
-                color: 'from-red-500 to-rose-600'
-            },
-            {
-                date: 'Oct 12, 2026',
-                tag: 'Launching',
-                title: 'Baskin Robbins Winter Collection',
-                desc: '12 new seasonal flavors launching across 14 countries simultaneously.',
-                color: 'from-pink-500 to-fuchsia-600'
-            },
-            {
-                date: 'Nov 01, 2026',
-                tag: 'Opening Store',
-                title: 'Gyukatsu Flagship — Jakarta',
-                desc: 'The first premium Gyukatsu flagship store opens in central Jakarta.',
-                color: 'from-violet-500 to-indigo-600'
-            },
-        ];
-        document.getElementById('timeline').innerHTML = events.map((e, i) => `
-    <div class="reveal relative pl-12 sm:pl-0 ${i%2===0?'sm:pr-1/2':'sm:pl-1/2 sm:text-right'}">
-      <div class="absolute left-4 sm:left-1/2 top-1 w-3 h-3 rounded-full bg-blue-500 timeline-dot sm:-translate-x-1/2"></div>
-      <div class="grad-border rounded-2xl glass p-5 ${i%2===0?'sm:mr-10':'sm:ml-10'}">
-        <div class="flex items-center gap-2 ${i%2!==0?'sm:justify-end':''}">
-          <span class="glass rounded-full px-3 py-1 text-xs text-white bg-gradient-to-r ${e.color}">${e.tag}</span>
-          <span class="text-xs text-slate-400">${e.date}</span>
-        </div>
-        <h3 class="font-display text-lg font-bold text-white mt-3">${e.title}</h3>
-        <p class="text-sm text-slate-400 mt-1">${e.desc}</p>
-      </div>
-    </div>`).join('');
-        // re-observe new reveals
-        document.querySelectorAll('#timeline .reveal').forEach(el => {
-            const io = new IntersectionObserver((ents) => ents.forEach(en => {
-                if (en.isIntersecting) {
-                    en.target.classList.add('in');
-                    io.unobserve(en.target);
-                }
-            }), {
-                threshold: 0.15
-            });
-            io.observe(el);
-        });
-    })();
-
-    /* ---------- Gallery ---------- */
-    (function() {
-        const imgs = [
-            'https://images.pexels.com/photos/31106210/pexels-photo-31106210.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/18713424/pexels-photo-18713424.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/15811723/pexels-photo-15811723.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/37113556/pexels-photo-37113556.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/31406820/pexels-photo-31406820.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/16544183/pexels-photo-16544183.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/10135116/pexels-photo-10135116.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-            'https://images.pexels.com/photos/36094445/pexels-photo-36094445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-        ];
-        const grid = document.getElementById('gallery-grid');
-        grid.innerHTML = imgs.map((src, i) => `
-    <div class="gallery-item reveal relative rounded-2xl overflow-hidden grad-border group ${i%5===0?'col-span-2 row-span-2':''}" style="${i%5===0?'aspect-square':'aspect-square'}">
-      <img src="${src}" alt="gallery" class="w-full h-full object-cover" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-        <span class="text-white text-sm font-medium">Trans F&amp;B Moment</span>
-      </div>
-    </div>`).join('');
-        grid.querySelectorAll('.reveal').forEach(el => {
-            const io = new IntersectionObserver((ents) => ents.forEach(en => {
-                if (en.isIntersecting) {
-                    en.target.classList.add('in');
-                    io.unobserve(en.target);
-                }
-            }), {
-                threshold: 0.1
-            });
-            io.observe(el);
-        });
-    })();
-
-    /* ---------- Testimonials ---------- */
-    (function() {
-        const data = [{
-                name: 'Andini Putri',
-                role: 'Coffee Enthusiast',
-                text: 'The Coffee Bean dashboard insights helped us track our favorite store openings effortlessly. Premium experience.',
-                rating: 5
-            },
-            {
-                name: 'Reza Mahendra',
-                role: 'Food Blogger',
-                text: "Wendy's campaign analytics are stunning. I can see live promotions and plan my reviews around real-time data.",
-                rating: 5
-            },
-            {
-                name: 'Sari Dewi',
-                role: 'Loyal Customer',
-                text: 'Baskin Robbins flavor launches are always exciting. The dashboard makes it so easy to discover new promos.',
-                rating: 4
-            },
-            {
-                name: 'Budi Santoso',
-                role: 'Restaurant Owner',
-                text: 'As a partner, the performance overview gives me confidence in the Trans F&B ecosystem. World-class.',
-                rating: 5
-            },
-        ];
-        const track = document.getElementById('testimonial-track');
-        const dots = document.getElementById('testimonial-dots');
-        track.innerHTML = data.map(t => `
-    <div class="min-w-full px-2">
-      <div class="glass rounded-2xl p-6 sm:p-8">
-        <div class="flex items-center gap-4 mb-4">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-violet-500 flex items-center justify-center font-bold text-white">${t.name[0]}</div>
-          <div>
-            <p class="font-semibold text-white">${t.name}</p>
-            <p class="text-xs text-slate-400">${t.role}</p>
-          </div>
-          <div class="ml-auto text-amber-400 text-sm">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
-        </div>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">"${t.text}"</p>
-      </div>
-    </div>`).join('');
-        dots.innerHTML = data.map((_, i) =>
-            `<button class="w-2.5 h-2.5 rounded-full transition ${i===0?'bg-white':'bg-white/30'}" data-i="${i}"></button>`
-        ).join('');
-        let idx = 0;
-
-        function go(n) {
-            idx = (n + data.length) % data.length;
-            track.style.transform = `translateX(-${idx*100}%)`;
-            dots.querySelectorAll('button').forEach(d => d.classList.toggle('bg-white', +d.dataset.i === idx));
-            dots.querySelectorAll('button').forEach(d => d.classList.toggle('bg-white/30', +d.dataset.i !== idx));
-        }
-        dots.querySelectorAll('button').forEach(d => d.onclick = () => go(+d.dataset.i));
-        let auto = setInterval(() => go(idx + 1), 5500);
-        track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
-        track.parentElement.addEventListener('mouseleave', () => auto = setInterval(() => go(idx + 1), 5500));
-    })();
-
-    /* ---------- Back to top ---------- */
-    document.getElementById('to-top').onclick = () => window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
     });
     </script>
 </body>
